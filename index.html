@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap&_v=20240321115442" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&display=swap&_v=20240321115442" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20240321115442">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240321115442"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240321115442"></script>
+    <link rel="stylesheet" href="css/style.min.css?_v=20240321115442">
+    <title>Dashboard</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+
+    <button class="sidebar__close">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#cancel"></use>
+        </svg>
+    </button>
+
+    <a href="/" class="logo">
+        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" width="48" height="48" alt="Revolut"></picture>
+        <span>Revolut</span>
+    </a>
+
+    <div class="sidebar-list__title text-small">Main Menu</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="#" class="sidebar-link active">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#home"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#chart"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Goals</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#desk"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Initiatives</span>
+
+                <span class="sidebar-link__counter">1</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#roi"></use>
+                </svg>
+
+                <span class="sidebar-link__title">ROI</span>
+            </a>
+        </li>
+    </ul>
+
+
+    <div class="sidebar-list__title text-small">Others</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#setup"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Settings</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#question"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Support</span>
+            </a>
+        </li>
+    </ul>
+
+    <button class="sidebar__logout">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#logout"></use>
+        </svg>
+        Log out
+    </button>
+</div>
+
+    <div class="content">
+
+        <div class="content__header">
+            <button class="sidebar__btn-open" aria-label="Open menu">
+                <svg width="32" height="32">
+                    <use href="/images/icons/icons.svg#hamburger"></use>
+                </svg>
+            </button>
+
+            <div class="user-greeting">
+    <span>Hello, Jane Doe!</span>
+    <div class="user-greeting__icon">
+        <svg width="35" height="35">
+            <use href="/images/icons/icons.svg#user-fill"></use>
+        </svg>
+    </div>
+</div>
+        </div>
+
+        <ul class="breadcrumbs">
+            <li>
+                Dashboard
+            </li>
+        </ul>
+
+        <div class="content-list-blocks">
+
+    <div class="block block-goals">
+        <div class="block-goals__header">
+
+            <div>
+                <div class="block-goals__value">
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#flag"></use>
+                    </svg>
+                    No Goals
+                </div>
+                <div class="block-goals__percent">-</div>
+            </div>
+
+            <div class="block-goals__circle">
+                <svg width="68" height="68" viewBox="0 0 68 68">
+                    
+                    <circle cx="34" cy="34" r="32" stroke="lightgrey" stroke-width="4" fill="none"/>
+
+                    
+                    <circle cx="34" cy="34" r="32" stroke="black" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="150.8 201.1" stroke-dashoffset="0" transform="rotate(-90 34 34)">
+                    </circle>
+
+                    
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="14" font-weight="bold" fill="black">
+                        -
+                    </text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="block next-release">
+        <div class="next-release__header">
+            <div class="icon">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#fire"></use>
+                </svg>
+            </div>
+            Next release
+        </div>
+
+        <div class="next-release__data">No data</div>
+
+        <div class="next-release__days">
+            <svg width="24" height="24">
+                <use href="/images/icons/icons.svg#fire"></use>
+            </svg>
+            -
+        </div>
+
+        <button class="btn">See Initiatives</button>
+    </div>
+
+    <div class="block calendar">Calendar</div>
+</div>
+    </div>
+</div>
+
+<script src="js/app.min.js?_v=20240321115442"></script>
+</body>
+</html>

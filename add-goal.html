@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap&_v=20240321115442" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&display=swap&_v=20240321115442" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20240321115442">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240321115442"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240321115442"></script>
+    <link rel="stylesheet" href="css/style.min.css?_v=20240321115442">
+    <title>Add Goal</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+
+    <button class="sidebar__close">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#cancel"></use>
+        </svg>
+    </button>
+
+    <a href="/" class="logo">
+        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" width="48" height="48" alt="Revolut"></picture>
+        <span>Revolut</span>
+    </a>
+
+    <div class="text-small sidebar-list__title">Main Menu</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#home"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link active">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#chart"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Goals</span>
+
+                <span class="sidebar-link__counter">1</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#desk"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Initiatives</span>
+
+                <span class="sidebar-link__counter">1</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#roi"></use>
+                </svg>
+
+                <span class="sidebar-link__title">ROI</span>
+            </a>
+        </li>
+    </ul>
+
+
+    <div class="text-small sidebar-list__title">Others</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#setup"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Settings</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#question"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Support</span>
+            </a>
+        </li>
+    </ul>
+
+    <button class="sidebar__logout">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#logout"></use>
+        </svg>
+        Log out
+    </button>
+</div>
+
+    <div class="content">
+
+        <div class="content__header">
+            <button class="sidebar__btn-open" aria-label="Open menu">
+                <svg width="32" height="32">
+                    <use href="/images/icons/icons.svg#hamburger"></use>
+                </svg>
+            </button>
+
+            <div class="user-greeting">
+    <span>Hello, Jane Doe!</span>
+    <div class="user-greeting__icon">
+        <svg width="35" height="35">
+            <use href="/images/icons/icons.svg#user-fill"></use>
+        </svg>
+    </div>
+</div>
+        </div>
+
+        <ul class="breadcrumbs">
+            <li>
+                <a href="#">
+                    Goals
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-right"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                Add Goal
+            </li>
+        </ul>
+
+        <div class="block content-view-1">
+
+    <div class="form__group">
+        <label class="form__label">Name</label>
+        <input type="text" class="form__input" placeholder="Select">
+    </div>
+
+    <div class="form__group">
+        <label class="form__label">Type</label>
+        <select class="choices-select-js">
+            <option value="">Select</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+    </div>
+
+    <div class="form__group">
+        <label class="form__label">Measurement</label>
+        <select class="choices-select-js">
+            <option value="">Select</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+    </div>
+
+    <div class="form__group form__group-dates">
+        <label class="form__label">Start Date/End Date</label>
+        <div class="form__wrap-dates">
+            <div class="p-relative">
+                <input type="text" class="form__input date-input-js form__input-big-height" name="dateRange" placeholder="Start Date">
+            </div>
+            <svg width="24" height="24">
+                <use href="/images/icons/icons.svg#arrow-right"></use>
+            </svg>
+            <div class="p-relative">
+                <input type="text" class="form__input date-input-js form__input-big-height" name="dateRange" placeholder="End Date">
+                <svg width="24" height="24" class="date">
+                    <use href="/images/icons/icons.svg#date"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="form__group form__group-query">
+        <div class="form__label">
+            Build Query
+            <div class="text-small">(Track your company goal)</div>
+        </div>
+        <div class="editor__wrap">
+            <div class="editor__bg">
+                <div id="editor" class="editor">SELECT
+    DATE(ticket_created) AS ticket_date,
+    COUNT(ticket_id) AS support_tickets_count
+FROM Zendesk.support_tickets
+WHERE product_name = 'FAQ Rewards'
+GROUP BY DATE(ticket_created);</div>
+            </div>
+            <div class="editor__footer">
+                <div class="editor__error">
+                    Syntax error: syntax error at or near "year".
+                </div>
+                <button class="btn">
+                    <svg width="24" height="24" class="date">
+                        <use href="/images/icons/icons.svg#play"></use>
+                    </svg>
+                    Run Query
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form__group form__group-bottom">
+        <label class="form__label">Start Value</label>
+        <input type="text" class="form__input form__input-small-width" placeholder="Select">
+    </div>
+
+    <div class="form__group form__group-bottom">
+        <label class="form__label">Current Value</label>
+        <input type="text" class="form__input form__input-small-width" placeholder="Select">
+    </div>
+
+    <div class="form__group form__group-bottom">
+        <label class="form__label">Target Value</label>
+        <div class="p-relative">
+            <input type="text" class="form__input form__input-small-width" placeholder="Select">
+            <div class="percent">-5%</div>
+        </div>
+    </div>
+
+    <div class="form__buttons">
+        <button class="btn btn-secondary">Cancel</button>
+        <button class="btn">Save</button>
+    </div>
+
+</div>
+    </div>
+</div>
+
+<script src="js/app.min.js?_v=20240321115442"></script>
+</body>
+</html>
