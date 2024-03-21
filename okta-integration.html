@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240321145013"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240321145013"></script>
     <link rel="stylesheet" href="css/style.min.css?_v=20240321145013">
-    <title>Add Goal</title>
+    <title>Okta Integration</title>
 </head>
 <body>
 
@@ -45,19 +45,17 @@
         </li>
 
         <li>
-            <a href="#" class="sidebar-link active">
+            <a href="#" class="sidebar-link">
                 <svg width="24" height="24">
                     <use href="/images/icons/icons.svg#chart"></use>
                 </svg>
 
                 <span class="sidebar-link__title">Goals</span>
-
-                <span class="sidebar-link__counter">1</span>
             </a>
         </li>
 
         <li>
-            <a href="#" class="sidebar-link">
+            <a href="#" class="sidebar-link active">
                 <svg width="24" height="24">
                     <use href="/images/icons/icons.svg#desk"></use>
                 </svg>
@@ -134,14 +132,14 @@
         <ul class="breadcrumbs">
             <li>
                 <a href="#">
-                    Goals
+                    All Initiatives
                     <svg width="24" height="24">
                         <use href="/images/icons/icons.svg#chevron-right"></use>
                     </svg>
                 </a>
             </li>
             <li>
-                Add Goal
+                Okta Integration
             </li>
         </ul>
 
@@ -149,45 +147,22 @@
 
     <div class="form__group">
         <label class="form__label">Name</label>
+        <input type="text" class="form__input" placeholder="Okta Integration">
+    </div>
+
+    <div class="form__group form__group-product">
+        <label class="form__label">Product</label>
         <input type="text" class="form__input" placeholder="Select">
     </div>
 
     <div class="form__group">
-        <label class="form__label">Type</label>
+        <label class="form__label">Assign to company goal</label>
         <select class="choices-select-js">
             <option value="">Select</option>
             <option value="1">Option 1</option>
             <option value="2">Option 2</option>
             <option value="3">Option 3</option>
         </select>
-    </div>
-
-    <div class="form__group">
-        <label class="form__label">Measurement</label>
-        <select class="choices-select-js">
-            <option value="">Select</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-        </select>
-    </div>
-
-    <div class="form__group form__group-dates">
-        <label class="form__label">Start Date/End Date</label>
-        <div class="form__wrap-dates">
-            <div class="p-relative">
-                <input type="text" class="form__input date-input-js" name="dateRange" placeholder="Start Date">
-            </div>
-            <svg width="24" height="24">
-                <use href="/images/icons/icons.svg#arrow-right"></use>
-            </svg>
-            <div class="p-relative">
-                <input type="text" class="form__input date-input-js" name="dateRange" placeholder="End Date">
-                <svg width="24" height="24" class="date">
-                    <use href="/images/icons/icons.svg#date"></use>
-                </svg>
-            </div>
-        </div>
     </div>
 
     <div class="form__group form__group-query">
@@ -236,9 +211,30 @@ GROUP BY DATE(ticket_created);</div>
         </div>
     </div>
 
+    <div class="form__group form__group-date">
+        <label class="form__label">Target Date</label>
+        <div class="p-relative">
+            <input type="text" class="form__input form__input-small-width date-input-js" name="dateRange" placeholder="Select">
+            <svg width="24" height="24" class="date">
+                <use href="/images/icons/icons.svg#date"></use>
+            </svg>
+        </div>
+    </div>
+    
+    <div class="form__group form__group-checkbox">
+        <div class="form__label">
+            Track on dashboard
+            <div class="text-small">You can only track up to 3 initiatives on the dashboard</div>
+        </div>
+        <label>
+            <input type="checkbox" class="form__checkbox">
+            <span class="form__checkbox-icon"></span>
+        </label>
+    </div>
+    
     <div class="form__buttons">
         <button class="btn btn-secondary">Cancel</button>
-        <button class="btn">Save</button>
+        <button class="btn">Assign tp goal</button>
     </div>
 
 </div>

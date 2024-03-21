@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240321145013"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240321145013"></script>
     <link rel="stylesheet" href="css/style.min.css?_v=20240321145013">
-    <title>Add Goal</title>
+    <title>Add KPI</title>
 </head>
 <body>
 
@@ -45,19 +45,17 @@
         </li>
 
         <li>
-            <a href="#" class="sidebar-link active">
+            <a href="#" class="sidebar-link">
                 <svg width="24" height="24">
                     <use href="/images/icons/icons.svg#chart"></use>
                 </svg>
 
                 <span class="sidebar-link__title">Goals</span>
-
-                <span class="sidebar-link__counter">1</span>
             </a>
         </li>
 
         <li>
-            <a href="#" class="sidebar-link">
+            <a href="#" class="sidebar-link active">
                 <svg width="24" height="24">
                     <use href="/images/icons/icons.svg#desk"></use>
                 </svg>
@@ -134,14 +132,22 @@
         <ul class="breadcrumbs">
             <li>
                 <a href="#">
-                    Goals
+                    All Initiatives
                     <svg width="24" height="24">
                         <use href="/images/icons/icons.svg#chevron-right"></use>
                     </svg>
                 </a>
             </li>
             <li>
-                Add Goal
+                <a href="okta-integration.html">
+                    Okta Integration
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-right"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                Add KPI
             </li>
         </ul>
 
@@ -153,13 +159,8 @@
     </div>
 
     <div class="form__group">
-        <label class="form__label">Type</label>
-        <select class="choices-select-js">
-            <option value="">Select</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-        </select>
+        <label class="form__label">Product</label>
+        <input type="text" class="form__input" placeholder="Select">
     </div>
 
     <div class="form__group">
@@ -172,28 +173,10 @@
         </select>
     </div>
 
-    <div class="form__group form__group-dates">
-        <label class="form__label">Start Date/End Date</label>
-        <div class="form__wrap-dates">
-            <div class="p-relative">
-                <input type="text" class="form__input date-input-js" name="dateRange" placeholder="Start Date">
-            </div>
-            <svg width="24" height="24">
-                <use href="/images/icons/icons.svg#arrow-right"></use>
-            </svg>
-            <div class="p-relative">
-                <input type="text" class="form__input date-input-js" name="dateRange" placeholder="End Date">
-                <svg width="24" height="24" class="date">
-                    <use href="/images/icons/icons.svg#date"></use>
-                </svg>
-            </div>
-        </div>
-    </div>
-
     <div class="form__group form__group-query">
         <div class="form__label">
             Build Query
-            <div class="text-small">(Track your company goal)</div>
+            <div class="text-small">(Track KPI’s related to<br> selected initiatives)</div>
         </div>
         <div class="editor__wrap">
             <div class="editor__bg">
@@ -235,7 +218,7 @@ GROUP BY DATE(ticket_created);</div>
             <div class="percent">-5%</div>
         </div>
     </div>
-
+    
     <div class="form__buttons">
         <button class="btn btn-secondary">Cancel</button>
         <button class="btn">Save</button>
