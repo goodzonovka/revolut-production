@@ -13,14 +13,14 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240322150136"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240322150136"></script>
     <link rel="stylesheet" href="css/style.min.css?_v=20240322150136">
-    <title>Add KPI</title>
+    <title>Goals</title>
 </head>
 <body>
 
 <div class="wrapper">
     <div class="sidebar">
 
-    <button class="sidebar__close">
+    <button class="sidebar__close" aria-label="Close sidebar">
         <svg width="24" height="24">
             <use href="/images/icons/icons.svg#cancel"></use>
         </svg>
@@ -45,17 +45,19 @@
         </li>
 
         <li>
-            <a href="goals.html" class="sidebar-link">
+            <a href="goals.html" class="sidebar-link active">
                 <svg width="24" height="24">
                     <use href="/images/icons/icons.svg#chart"></use>
                 </svg>
 
                 <span class="sidebar-link__title">Goals</span>
+
+                <span class="sidebar-link__counter">1</span>
             </a>
         </li>
 
         <li>
-            <a href="okta-integration.html" class="sidebar-link active">
+            <a href="okta-integration.html" class="sidebar-link">
                 <svg width="24" height="24">
                     <use href="/images/icons/icons.svg#desk"></use>
                 </svg>
@@ -131,99 +133,28 @@
 
         <ul class="breadcrumbs">
             <li>
-                <a href="#">
-                    All Initiatives
-                    <svg width="24" height="24">
-                        <use href="/images/icons/icons.svg#chevron-right"></use>
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="okta-integration.html">
-                    Okta Integration
-                    <svg width="24" height="24">
-                        <use href="/images/icons/icons.svg#chevron-right"></use>
-                    </svg>
-                </a>
-            </li>
-            <li>
-                Add KPI
+                Goals
             </li>
         </ul>
 
-        <div class="block content-view-1">
-
-    <div class="form__group">
-        <label class="form__label">Name</label>
-        <input type="text" class="form__input" placeholder="Select">
-    </div>
-
-    <div class="form__group">
-        <label class="form__label">Product</label>
-        <input type="text" class="form__input" placeholder="Select">
-    </div>
-
-    <div class="form__group">
-        <label class="form__label">Measurement</label>
-        <select class="choices-select-js">
-            <option value="">Select</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-        </select>
-    </div>
-
-    <div class="form__group form__group-query">
-        <div class="form__label">
-            Build Query
-            <div class="text-small">(Track KPI’s related to<br> selected initiatives)</div>
+        <div class="block goals">
+    <div class="icon-text">
+        <div class="icon">
+            <svg width="24" height="24">
+                <use href="/images/icons/icons.svg#fire"></use>
+            </svg>
         </div>
-        <div class="editor__wrap">
-            <div class="editor__bg">
-                <div id="editor" class="editor">SELECT
-    DATE(ticket_created) AS ticket_date,
-    COUNT(ticket_id) AS support_tickets_count
-FROM Zendesk.support_tickets
-WHERE product_name = 'FAQ Rewards'
-GROUP BY DATE(ticket_created);</div>
-            </div>
-            <div class="editor__footer">
-                <div class="editor__error">
-                    Syntax error: syntax error at or near "year".
-                </div>
-                <button class="btn">
-                    <svg width="24" height="24">
-                        <use href="/images/icons/icons.svg#play"></use>
-                    </svg>
-                    Run Query
-                </button>
-            </div>
+        <div>
+            <div class="text-small">Getting started</div>
+            Setup your dashboard to start tracking impact
         </div>
     </div>
 
-    <div class="form__group">
-        <label class="form__label">Start Value</label>
-        <input type="text" class="form__input form__input-small-width" placeholder="Select">
+    <div class="user-content">
+        <p>Setup your first goals to understand which parts of your product development are contributing to desired outcomes. In real-time.</p>
     </div>
 
-    <div class="form__group">
-        <label class="form__label">Current Value</label>
-        <input type="text" class="form__input form__input-small-width" placeholder="Select">
-    </div>
-
-    <div class="form__group">
-        <label class="form__label">Target Value</label>
-        <div class="p-relative">
-            <input type="text" class="form__input form__input-small-width" placeholder="Select">
-            <div class="percent">-5%</div>
-        </div>
-    </div>
-    
-    <div class="form__buttons">
-        <button class="btn btn-secondary">Cancel</button>
-        <button class="btn">Save</button>
-    </div>
-
+    <button class="btn">Add a Goal</button>
 </div>
     </div>
 </div>

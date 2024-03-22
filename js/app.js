@@ -4078,42 +4078,91 @@ helpers_BaseHelpers.addLoadedClass();
 helpers_BaseHelpers.headerFixed();
 /* end проверка на поддержку webp формата */
 
-var choicesSelects = document.querySelectorAll('.choices-select-js');
-choicesSelects.forEach(function (element) {
-  new Choices(element, {
-    searchEnabled: false,
-    // Отключить поиск, если не нужен
-    itemSelectText: '' // Текст для выбора элемента
+document.addEventListener('DOMContentLoaded', function () {
+  var choicesSelects = document.querySelectorAll('.choices-select-js');
+  choicesSelects.forEach(function (element) {
+    new Choices(element, {
+      searchEnabled: false,
+      itemSelectText: ''
+    });
   });
-});
 
-var dateInputs = document.querySelectorAll('.date-input-js');
-dateInputs.forEach(function (element) {
-  flatpickr(element, {
-    disableMobile: "true"
-    // mode: "range",
-    // dateFormat: "Y-m-d"
+  // Предварительная обработка и сохранение данных из опций
+  var optionsData = {};
+  document.querySelectorAll('#multi-select-js option').forEach(function (option) {
+    var imgSrc = option.getAttribute('data-img-src');
+    var value = option.value;
+    optionsData[value] = imgSrc;
   });
-});
-
-if (document.getElementById('editor')) {
-  var editor = ace.edit("editor");
-  editor.session.setMode("ace/mode/sql");
-  editor.setTheme("ace/theme/tomorrow_night_blue");
-  if (window.innerWidth < 359) {
-    console.log('q');
-    editor.setFontSize(12);
-  } else if (window.innerWidth < 768) {
-    editor.setFontSize(14);
-  } else {
-    editor.setFontSize(16);
+  if (document.getElementById('multi-select-js')) {
+    var updateClearButtonVisibility = function updateClearButtonVisibility() {
+      var hasValues = multiSelect.getValue().length > 0;
+      clearButton.style.display = hasValues ? 'block' : 'none';
+    };
+    var multiSelect = new Choices('#multi-select-js', {
+      removeItemButton: true,
+      searchEnabled: false,
+      shouldSort: false,
+      callbackOnCreateTemplates: function callbackOnCreateTemplates(template) {
+        var _this = this;
+        return {
+          choice: function choice(classNames, data) {
+            // Получаем imgSrc из сохраненных данных
+            var imgSrc = optionsData[data.value];
+            return template("\n                        <div class=\"choice-with-image\" data-select-text=\"".concat(_this.config.itemSelectText, "\" data-choice data-id=\"").concat(data.id, "\" data-value=\"").concat(data.value, "\" ").concat(data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable', " role=\"option\">\n                            <img src=\"").concat(imgSrc, "\" class=\"choice-img\" style=\"width:24px; height:24px; margin-right:8px;\"> ").concat(data.label, "\n                        </div>\n                    "));
+          }
+        };
+      }
+    });
+    var clearButton = document.createElement('div');
+    clearButton.classList.add('choices__clear');
+    clearButton.innerHTML = "\n        <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path fill-rule=\"evenodd\" clip-rule=\"evenodd\"\n                  d=\"M7.36612 7.36612C7.85427 6.87796 8.64573 6.87796 9.13388 7.36612L12 10.2322L14.8661 7.36612C15.3543 6.87796 16.1457 6.87796 16.6339 7.36612C17.122 7.85427 17.122 8.64573 16.6339 9.13388L13.7678 12L16.6339 14.8661C17.122 15.3543 17.122 16.1457 16.6339 16.6339C16.1457 17.122 15.3543 17.122 14.8661 16.6339L12 13.7678L9.13388 16.6339C8.64573 17.122 7.85427 17.122 7.36612 16.6339C6.87796 16.1457 6.87796 15.3543 7.36612 14.8661L10.2322 12L7.36612 9.13388C6.87796 8.64573 6.87796 7.85427 7.36612 7.36612Z\"\n                  fill=\"currentColor\"/>\n        </svg>\n    ";
+    document.querySelector('.choices__inner').appendChild(clearButton);
+    updateClearButtonVisibility();
+    clearButton.addEventListener('click', function (e) {
+      e.stopPropagation();
+      multiSelect.removeActiveItems(); // Очищаем все выбранные элементы
+      updateClearButtonVisibility();
+    });
+    multiSelect.passedElement.element.addEventListener('change', updateClearButtonVisibility);
   }
-}
-document.querySelector('.sidebar__btn-open').addEventListener('click', function () {
-  document.querySelector('.sidebar').classList.add('active');
-});
-document.querySelector('.sidebar__close').addEventListener('click', function () {
-  document.querySelector('.sidebar').classList.remove('active');
+  var dateInputs = document.querySelectorAll('.date-input-js');
+  dateInputs.forEach(function (element) {
+    flatpickr(element, {
+      disableMobile: "true"
+    });
+  });
+  if (document.getElementById('editor')) {
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/sql");
+    editor.setTheme("ace/theme/tomorrow_night_blue");
+    if (window.innerWidth < 359) {
+      console.log('q');
+      editor.setFontSize(12);
+    } else if (window.innerWidth < 768) {
+      editor.setFontSize(14);
+    } else {
+      editor.setFontSize(16);
+    }
+  }
+  document.querySelector('.sidebar__btn-open').addEventListener('click', function () {
+    document.querySelector('.sidebar').classList.add('active');
+  });
+  document.querySelector('.sidebar__close').addEventListener('click', function () {
+    document.querySelector('.sidebar').classList.remove('active');
+  });
+  document.querySelectorAll('.show-pass').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var parent = button.parentElement;
+      var passwordInput = parent.querySelector('input[type="password"], input[type="text"]');
+      var svgUseElement = button.querySelector('svg use');
+      if (passwordInput && svgUseElement) {
+        var isPassword = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+        svgUseElement.setAttribute('href', isPassword ? '/images/icons/icons.svg#no-view' : '/images/icons/icons.svg#view');
+      }
+    });
+  });
 });
 /******/ })()
 ;
