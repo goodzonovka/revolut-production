@@ -793,6 +793,7 @@ sup {
 
 .form__group-select-multiply .choice-with-image.is-highlighted {
   background-color: #E1D3FE;
+  box-shadow: inset 3px 0 0 #8950FC;
 }
 
 .form__group svg {
