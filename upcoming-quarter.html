@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240325132140"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240325132140"></script>
     <link rel="stylesheet" href="css/style.min.css?_v=20240325132140">
-    <title>Dashboard</title>
+    <title>Upcoming Quarter</title>
 </head>
 <body>
 
@@ -131,7 +131,15 @@
 
         <ul class="breadcrumbs">
             <li>
-                Dashboard
+                <a href="#">
+                    Dashboard
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-right"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                Upcoming Quarter
             </li>
         </ul>
 
@@ -145,9 +153,9 @@
                     <svg width="24" height="24">
                         <use href="/images/icons/icons.svg#flag"></use>
                     </svg>
-                    No Goals
+                    4.5% churn
                 </div>
-                <div class="block-goals__percent">-</div>
+                <div class="block-goals__percent">%5.62</div>
             </div>
 
             <div class="block-goals__circle">
@@ -160,11 +168,85 @@
                     </circle>
 
                     
-                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="14" font-weight="bold" fill="black">
-                        -
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="16" font-weight="bold" fill="black">
+                        80%
                     </text>
                 </svg>
             </div>
+        </div>
+
+        <div class="chart-demo">
+            <picture><source srcset="images/upcoming-quarter/chart-demo-1.webp" type="image/webp"><img src="images/upcoming-quarter/chart-demo-1.png" width="325" height="214" alt=""></picture>
+        </div>
+    </div>
+
+    <div class="block block-goals">
+        <div class="block-goals__header">
+
+            <div>
+                <div class="block-goals__value">
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#flag"></use>
+                    </svg>
+                    29.5k users
+                </div>
+                <div class="block-goals__percent">16.4K</div>
+            </div>
+
+            <div class="block-goals__circle">
+                <svg width="68" height="68" viewBox="0 0 68 68">
+                    
+                    <circle cx="34" cy="34" r="32" stroke="#EFF2F8" stroke-width="4" fill="none"/>
+
+                    
+                    <circle cx="34" cy="34" r="32" stroke="black" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="150.8 201.1" stroke-dashoffset="0" transform="rotate(-90 34 34)">
+                    </circle>
+
+                    
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="16" font-weight="bold" fill="black">
+                        20%
+                    </text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="chart-demo">
+            <picture><source srcset="images/upcoming-quarter/chart-demo-2.webp" type="image/webp"><img src="images/upcoming-quarter/chart-demo-2.png" width="325" height="214" alt=""></picture>
+        </div>
+    </div>
+
+    <div class="block block-goals">
+        <div class="block-goals__header">
+
+            <div>
+                <div class="block-goals__value">
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#flag"></use>
+                    </svg>
+                    $1.5m ARR
+                </div>
+                <div class="block-goals__percent">$1.51m</div>
+            </div>
+
+            <div class="block-goals__circle">
+                <svg width="68" height="68" viewBox="0 0 68 68">
+                    
+                    <circle cx="34" cy="34" r="32" stroke="#EFF2F8" stroke-width="4" fill="none"/>
+
+                    
+                    <circle cx="34" cy="34" r="32" stroke="black" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="150.8 201.1" stroke-dashoffset="0" transform="rotate(-90 34 34)">
+                    </circle>
+
+                    
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="16" font-weight="bold" fill="black">
+                        80%
+                    </text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="chart-demo">
+            <picture><source srcset="images/upcoming-quarter/chart-demo-3.webp" type="image/webp"><img src="images/upcoming-quarter/chart-demo-3.png" width="325" height="214" alt=""></picture>
         </div>
     </div>
 
@@ -178,19 +260,38 @@
             Next release
         </div>
 
-        <div class="next-release__data">No data</div>
+        <div class="next-release__data">AI-Powered bot assistant for Expenses product.</div>
 
         <div class="next-release__days">
             <svg width="24" height="24">
                 <use href="/images/icons/icons.svg#fire"></use>
             </svg>
-            -
+            2 days
         </div>
 
         <button class="btn">See Initiatives</button>
     </div>
 
-    <div class="block calendar">Calendar</div>
+    <div class="block calendar calendar-demo">
+        <picture><source srcset="images/upcoming-quarter/calendar-demo.webp" type="image/webp"><img src="images/upcoming-quarter/calendar-demo.png" width="287" height="333" alt=""></picture>
+    </div>
+
+    <div class="block block-goals">
+        <div class="block-goals__header">
+
+            <div>
+                <div class="text-border">Okta Integration</div>
+                <div class="block-goals__cost">Development cost</div>
+                <div class="block-goals__percent">$1.51m</div>
+            </div>
+
+            <div class="block-goals__date">23 Oct</div>
+        </div>
+
+        <div class="chart-demo">
+            <picture><source srcset="images/upcoming-quarter/chart-demo-4.webp" type="image/webp"><img src="images/upcoming-quarter/chart-demo-4.png" width="325" height="214" alt=""></picture>
+        </div>
+    </div>
 </div>
     </div>
 </div>

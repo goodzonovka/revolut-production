@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap&_v=20240325132140" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&display=swap&_v=20240325132140" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20240325132140">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240325132140"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240325132140"></script>
+    <link rel="stylesheet" href="css/style.min.css?_v=20240325132140">
+    <title>Tracked initiatives Detailed View</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+
+    <button class="sidebar__close" aria-label="Close sidebar">
+        <svg width="44" height="44">
+            <use href="/images/icons/icons.svg#cancel"></use>
+        </svg>
+    </button>
+
+    <a href="/" class="logo">
+        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" width="48" height="48" alt="Revolut"></picture>
+        <span>Revolut</span>
+    </a>
+
+    <div class="text-small sidebar-list__title">Main Menu</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="/" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#home"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="goals.html" class="sidebar-link active">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#chart"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Goals</span>
+
+                <span class="sidebar-link__counter">1</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="okta-integration.html" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#desk"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Initiatives</span>
+
+                <span class="sidebar-link__counter">1</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#roi"></use>
+                </svg>
+
+                <span class="sidebar-link__title">ROI</span>
+            </a>
+        </li>
+    </ul>
+
+
+    <div class="text-small sidebar-list__title">Others</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="settings.html" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#setup"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Settings</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#question"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Support</span>
+            </a>
+        </li>
+    </ul>
+
+    <button class="sidebar__logout">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#logout"></use>
+        </svg>
+        Log out
+    </button>
+</div>
+
+    <div class="content">
+
+        <div class="content__header">
+            <button class="sidebar__btn-open" aria-label="Open menu">
+                <svg width="32" height="32">
+                    <use href="/images/icons/icons.svg#hamburger"></use>
+                </svg>
+            </button>
+
+            <div class="user-greeting">
+    <span>Hello, Jane Doe!</span>
+    <div class="user-greeting__icon">
+        <svg width="35" height="35">
+            <use href="/images/icons/icons.svg#user-fill"></use>
+        </svg>
+    </div>
+</div>
+        </div>
+
+        <ul class="breadcrumbs">
+            <li>
+                <a href="#">
+                    All Initiatives
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-right"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                Okta Integration
+            </li>
+        </ul>
+
+        <div class="tracked-initiatives">
+    <button class="tracked-initiatives-sidebar__open" aria-label="Open additional information">
+        <svg width="30" height="30">
+            <use href="/images/icons/icons.svg#hamburger-list"></use>
+        </svg>
+    </button>
+    <div class="tracked-initiatives-content">
+        <div class="block tracked-initiatives-content__top">
+            <div class="form__group form__group-name">
+                <label class="form__label">Name</label>
+                <input type="text" class="form__input" placeholder="Okta Integration">
+            </div>
+
+            <div class="form__group form__group-query">
+                <div class="form__label">
+                    Set Query
+                    <div class="text-small">(Impact on company goal)</div>
+                </div>
+                <div class="editor__wrap">
+                    <div class="editor__bg">
+                        <div class="editor editor-js">SELECT
+    DATE(ticket_created) AS ticket_date,
+    COUNT(ticket_id) AS support_tickets_count
+FROM Zendesk.support_tickets
+WHERE product_name = 'FAQ Rewards'
+GROUP BY DATE(ticket_created);</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-demo">
+                <picture><source srcset="images/stub-chart-big.webp" type="image/webp"><img src="images/stub-chart-big.png" width="666" height="384" alt=""></picture>
+            </div>
+        </div>
+
+        <div class="tracked-initiatives-content__list">
+            <div class="block">
+                <div class="text-border">#support tickets</div>
+                <div class="chart-demo">
+                    <picture><source srcset="images/stub-chart-small.webp" type="image/webp"><img src="images/stub-chart-small.png" width="325" height="172" alt=""></picture>
+                </div>
+                <div class="editor__bg">
+                <div class="editor editor-js">SELECT
+    DATE(ticket_created) AS ticket_date,
+    COUNT(ticket_id) AS support_tickets_count
+FROM Zendesk.support_tickets
+WHERE product_name = 'FAQ Rewards'
+GROUP BY DATE(ticket_created);</div>
+            </div>
+            </div>
+
+            <div class="block">
+                <div class="text-border">#currency handled</div>
+                <div class="chart-demo">
+                    <picture><source srcset="images/stub-chart-small.webp" type="image/webp"><img src="images/stub-chart-small.png" width="325" height="172" alt=""></picture>
+                </div>
+                <div class="editor__bg">
+                    <div class="editor editor-js">SELECT
+    DATE(ticket_created) AS ticket_date,
+    COUNT(ticket_id) AS support_tickets_count
+FROM Zendesk.support_tickets
+WHERE product_name = 'FAQ Rewards'
+GROUP BY DATE(ticket_created);</div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="text-border">#support tickets</div>
+                <div class="chart-demo">
+                    <picture><source srcset="images/stub-chart-small.webp" type="image/webp"><img src="images/stub-chart-small.png" width="325" height="172" alt=""></picture>
+                </div>
+                <div class="editor__bg">
+                    <div class="editor editor-js">SELECT
+    DATE(ticket_created) AS ticket_date,
+    COUNT(ticket_id) AS support_tickets_count
+FROM Zendesk.support_tickets
+WHERE product_name = 'FAQ Rewards'
+GROUP BY DATE(ticket_created);</div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="text-border">#currency handled</div>
+                <div class="chart-demo">
+                    <picture><source srcset="images/stub-chart-small.webp" type="image/webp"><img src="images/stub-chart-small.png" width="325" height="172" alt=""></picture>
+                </div>
+                <div class="editor__bg">
+                    <div class="editor editor-js">SELECT
+    DATE(ticket_created) AS ticket_date,
+    COUNT(ticket_id) AS support_tickets_count
+FROM Zendesk.support_tickets
+WHERE product_name = 'FAQ Rewards'
+GROUP BY DATE(ticket_created);</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block tracked-initiatives-sidebar">
+        <button class="tracked-initiatives-sidebar__close" aria-label="Close additional information">
+            <svg width="44" height="44">
+                <use href="/images/icons/icons.svg#cancel"></use>
+            </svg>
+        </button>
+
+        <div class="tracked-initiatives-sidebar__item">
+            <div>Release Date</div>
+
+            <div class="tracked-initiatives-sidebar__value">23 Oct</div>
+        </div>
+        <div class="tracked-initiatives-sidebar__item">
+            <div>Version ID</div>
+
+            <div class="tracked-initiatives-sidebar__value">V1.2340</div>
+        </div>
+        <div class="tracked-initiatives-sidebar__item">
+            <div>Priority</div>
+
+            <div class="tracked-initiatives-sidebar__value tracked-initiatives-sidebar__value-green">Low</div>
+        </div>
+        <div class="tracked-initiatives-sidebar__item">
+            <div>Development cost</div>
+
+            <div class="tracked-initiatives-sidebar__value">$35-50K</div>
+        </div>
+        <div class="tracked-initiatives-sidebar__item">
+            <div class="tracked-initiatives-sidebar__header">
+                <div>KPI results</div>
+                <button class="btn">Add KPIs</button>
+            </div>
+
+            <ul class="kpi">
+                <li class="kpi__item">
+                    <div class="kpi__title">#Support tickets</div>
+                    <div class="kpi__progress-full">
+                        <div class="kpi__progress-active" style="width:55%">
+                            <span class="kpi__progress-value">55%</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="kpi__item">
+                    <div class="kpi__title">#Currency handled</div>
+                    <div class="kpi__progress-full">
+                        <div class="kpi__progress-active" style="width:100%">
+                            <span class="kpi__progress-value">100%</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="kpi__item">
+                    <div class="kpi__title">#Currency clicked</div>
+                    <div class="kpi__progress-full">
+                        <div class="kpi__progress-active" style="width:55%">
+                            <span class="kpi__progress-value">55%</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="kpi__item">
+                    <div class="kpi__title">#Cashback created</div>
+                    <div class="kpi__progress-full">
+                        <div class="kpi__progress-active" style="width:55%">
+                            <span class="kpi__progress-value">55%</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+    </div>
+</div>
+
+<script src="js/app.min.js?_v=20240325132140"></script>
+</body>
+</html>

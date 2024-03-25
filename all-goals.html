@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240325132140"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240325132140"></script>
     <link rel="stylesheet" href="css/style.min.css?_v=20240325132140">
-    <title>Goals</title>
+    <title>All Goals</title>
 </head>
 <body>
 
@@ -31,7 +31,7 @@
         <span>Revolut</span>
     </a>
 
-    <div class="text-small sidebar-list__title">Main Menu</div>
+    <div class="sidebar-list__title text-small">Main Menu</div>
 
     <ul class="sidebar-list">
         <li>
@@ -51,8 +51,6 @@
                 </svg>
 
                 <span class="sidebar-link__title">Goals</span>
-
-                <span class="sidebar-link__counter">1</span>
             </a>
         </li>
 
@@ -80,7 +78,7 @@
     </ul>
 
 
-    <div class="text-small sidebar-list__title">Others</div>
+    <div class="sidebar-list__title text-small">Others</div>
 
     <ul class="sidebar-list">
         <li>
@@ -133,28 +131,83 @@
 
         <ul class="breadcrumbs">
             <li>
-                Goals
+                <a href="#">
+                    Goals
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-right"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                All Goals
             </li>
         </ul>
 
-        <div class="block goals">
-    <div class="icon-text">
-        <div class="active icon-block">
-            <svg width="24" height="24">
-                <use href="/images/icons/icons.svg#fire"></use>
-            </svg>
-        </div>
-        <div>
-            <div class="text-small">Getting started</div>
-            Setup your dashboard to start tracking impact
-        </div>
+        <div class="block table">
+    <div class="table__top">
+        <div class="table__title">All Goals</div>
     </div>
 
-    <div class="user-content">
-        <p>Setup your first goals to understand which parts of your product development are contributing to desired outcomes. In real-time.</p>
-    </div>
+    <div class="table__scroll">
+        <div class="table__inner">
+            <div class="table__row table__row-header">
+                <div class="table__th">
+                    Name
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-down"></use>
+                    </svg>
+                </div>
+                <div class="table__th">
+                    Type
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-down"></use>
+                    </svg>
+                </div>
+                <div class="table__th">
+                    Start Date
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-down"></use>
+                    </svg>
+                </div>
+                <div class="table__th">
+                    End Date
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-down"></use>
+                    </svg>
+                </div>
+                <div class="table__th">
+                    Initiatives for Goal
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-down"></use>
+                    </svg>
+                </div>
+            </div>
 
-    <button class="btn">Add a Goal</button>
+            <div class="table__row">
+                <div class="table__td">Reduce Churn by 5%</div>
+                <div class="table__td">Churn Reduction</div>
+                <div class="table__td">01/01/2024</div>
+                <div class="table__td">01/03/2024</div>
+                <div class="table__td">12</div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">Grow users by 7k</div>
+                <div class="table__td">User Growth</div>
+                <div class="table__td">01/01/2024</div>
+                <div class="table__td">01/03/2024</div>
+                <div class="table__td">4</div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">Increase ARR</div>
+                <div class="table__td">ARR Increase</div>
+                <div class="table__td">01/01/2024</div>
+                <div class="table__td">01/03/2024</div>
+                <div class="table__td">10</div>
+            </div>
+        </div>
+    </div>
 </div>
     </div>
 </div>

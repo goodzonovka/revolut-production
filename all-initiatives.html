@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap&_v=20240325132140" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&display=swap&_v=20240325132140" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20240325132140">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240325132140"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240325132140"></script>
+    <link rel="stylesheet" href="css/style.min.css?_v=20240325132140">
+    <title>All Initiatives</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+
+    <button class="sidebar__close">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#cancel"></use>
+        </svg>
+    </button>
+
+    <a href="/" class="logo">
+        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" width="48" height="48" alt="Revolut"></picture>
+        <span>Revolut</span>
+    </a>
+
+    <div class="text-small sidebar-list__title">Main Menu</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="/" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#home"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="goals.html" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#chart"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Goals</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="okta-integration.html" class="sidebar-link active">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#desk"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Initiatives</span>
+
+                <span class="sidebar-link__counter">1</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#roi"></use>
+                </svg>
+
+                <span class="sidebar-link__title">ROI</span>
+            </a>
+        </li>
+    </ul>
+
+
+    <div class="text-small sidebar-list__title">Others</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="settings.html" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#setup"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Settings</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#question"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Support</span>
+            </a>
+        </li>
+    </ul>
+
+    <button class="sidebar__logout">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#logout"></use>
+        </svg>
+        Log out
+    </button>
+</div>
+
+    <div class="content">
+
+        <div class="content__header">
+            <button class="sidebar__btn-open" aria-label="Open menu">
+                <svg width="32" height="32">
+                    <use href="/images/icons/icons.svg#hamburger"></use>
+                </svg>
+            </button>
+
+            <div class="user-greeting">
+    <span>Hello, Jane Doe!</span>
+    <div class="user-greeting__icon">
+        <svg width="35" height="35">
+            <use href="/images/icons/icons.svg#user-fill"></use>
+        </svg>
+    </div>
+</div>
+        </div>
+
+        <ul class="breadcrumbs">
+            <li>
+                All Initiatives
+            </li>
+        </ul>
+
+        <ul class="table__additional-information">
+    <li class="block icon-text">
+        <div class="icon-block">
+            <svg width="24" height="24">
+                <use href="/images/icons/icons.svg#file-fill"></use>
+            </svg>
+        </div>
+        <div>
+            <div class="text-small">Tracked Initiatives</div>
+            0
+        </div>
+    </li>
+    <li class="block icon-text">
+        <div class="icon-block">
+            <svg width="24" height="24">
+                <use href="/images/icons/icons.svg#fire"></use>
+            </svg>
+        </div>
+        <div>
+            <div class="text-small">Unassigned</div>
+            88
+        </div>
+    </li>
+</ul>
+
+<div class="block table">
+    <div class="table__top">
+        <div class="table__title">All Initiatives</div>
+
+        <div class="table__sort">
+            <button>Tracked</button>
+            <button class="active">Unassigned</button>
+        </div>
+    </div>
+
+    <div class="table__scroll">
+        <div class="table__inner">
+            <div class="table__row table__row-header">
+                <div class="table__th">
+                    Name
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-down"></use>
+                    </svg>
+                </div>
+                <div class="table__th">
+                    Product
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-down"></use>
+                    </svg>
+                </div>
+                <div class="table__th">
+                    Created
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-down"></use>
+                    </svg>
+                </div>
+                <div class="table__th">
+                </div>
+                <div class="table__th">
+                </div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">Okta integration</div>
+                <div class="table__td">Authentification</div>
+                <div class="table__td">68 days ago</div>
+                <div class="table__td">
+                    <div class="status status-1">Not tracked</div>
+                </div>
+                <div class="table__td">assign to goal</div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">AI Expense assistant</div>
+                <div class="table__td">Expenses</div>
+                <div class="table__td">33 days ago</div>
+                <div class="table__td">
+                    <div class="status status-1">Not tracked</div>
+                </div>
+                <div class="table__td">assign to goal</div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">Vault new UI</div>
+                <div class="table__td">Expenses</div>
+                <div class="table__td">76 days ago</div>
+                <div class="table__td">
+                    <div class="status status-1">Not tracked</div>
+                </div>
+                <div class="table__td">assign to goal</div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">Cashback integration</div>
+                <div class="table__td">Cashback</div>
+                <div class="table__td">28 days ago</div>
+                <div class="table__td">
+                    <div class="status status-1">Not tracked</div>
+                </div>
+                <div class="table__td">assign to goal</div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">Shopify integrations</div>
+                <div class="table__td">Integrations</div>
+                <div class="table__td">8 days ago</div>
+                <div class="table__td">
+                    <div class="status status-1">Not tracked</div>
+                </div>
+                <div class="table__td">assign to goal</div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">AI HR bot</div>
+                <div class="table__td">HR</div>
+                <div class="table__td">14 days ago</div>
+                <div class="table__td">
+                    <div class="status status-1">Not tracked</div>
+                </div>
+                <div class="table__td">assign to goal</div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">New onboarding flow</div>
+                <div class="table__td">Authentification</div>
+                <div class="table__td">18 days ago</div>
+                <div class="table__td">
+                    <div class="status status-1">Not tracked</div>
+                </div>
+                <div class="table__td">assign to goal</div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">FAQ</div>
+                <div class="table__td">Cashback</div>
+                <div class="table__td">41 days ago</div>
+                <div class="table__td">
+                    <div class="status status-1">Not tracked</div>
+                </div>
+                <div class="table__td">assign to goal</div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">Open Banking integration</div>
+                <div class="table__td">Paiements</div>
+                <div class="table__td">7 days ago</div>
+                <div class="table__td">
+                    <div class="status status-1">Not tracked</div>
+                </div>
+                <div class="table__td">assign to goal</div>
+            </div>
+
+            <div class="table__row">
+                <div class="table__td">Supplier portal</div>
+                <div class="table__td">Suppliers</div>
+                <div class="table__td">26 days ago</div>
+                <div class="table__td">
+                    <div class="status status-1">Not tracked</div>
+                </div>
+                <div class="table__td">assign to goal</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pagination">
+    <a href="#" class="pagination__item prev">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#chevron-left"></use>
+        </svg>
+    </a>
+    <a href="#" class="pagination__item active">1</a>
+    <a href="#" class="pagination__item">2</a>
+    <a href="#" class="pagination__item">3</a>
+    <a href="#" class="pagination__item">4</a>
+    <a href="#" class="pagination__item">5</a>
+    <a href="#" class="pagination__item next">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#chevron-right"></use>
+        </svg>
+    </a>
+</div>
+    </div>
+</div>
+
+<script src="js/app.min.js?_v=20240325132140"></script>
+</body>
+</html>
