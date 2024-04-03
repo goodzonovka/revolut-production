@@ -4226,7 +4226,8 @@ document.addEventListener('DOMContentLoaded', function () {
   tabsButtons.forEach(function (button) {
     button.addEventListener('click', onTabClick);
   });
-
+});
+window.onload = function () {
   // Добавление тултипа ко всем ячейкам первого столбца
   var tableCells = document.querySelectorAll('.table__row .table__td:has(.table__td-name)');
   tableCells.forEach(function (cell) {
@@ -4246,6 +4247,7 @@ document.addEventListener('DOMContentLoaded', function () {
     tooltipDiv.appendChild(tooltipSpan); // Добавляем текст тултипа
   });
 
+  // setTimeout(function () {
   // Находим все элементы с классом table__td-name
   var elements = document.querySelectorAll('.table__td-name');
   elements.forEach(function (element) {
@@ -4268,6 +4270,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     element.classList.add('trim');
   });
-});
+  // }, 1000);
+};
 /******/ })()
 ;
