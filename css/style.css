@@ -1258,6 +1258,48 @@ sup {
 * Подключение стилей повторяющихся блоков
 */
 
+/* Стиль тултипа */
+
+.tooltip {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  bottom: 100%;
+  left: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  width: 213px;
+  margin-bottom: 10px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 4px 10px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip .tooltiptext:before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 100%;
+  transform: rotate(45deg);
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  background: black;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 .flatpickr-calendar.rangeMode {
   width: 574px;
 }
@@ -2268,6 +2310,11 @@ body:has(.table__additional-information) .table {
   margin-top: 1rem;
 }
 
+.table.table-view-1 .table__th,
+.table.table-view-1 .table__td {
+  width: 20%;
+}
+
 .table.table-view-2 .progress {
   flex-grow: 0;
   width: 103px;
@@ -2295,9 +2342,13 @@ body:has(.table__additional-information) .table {
   margin-left: 10px;
 }
 
-.table.table-view-2 .table__td-dev-status,
 .table.table-view-2 .table__td-progress {
   justify-content: center;
+}
+
+.table.table-view-3 .table__th,
+.table.table-view-3 .table__td {
+  width: 16.66%;
 }
 
 .table:has(.table__td-goal) .table__td,
@@ -2402,13 +2453,13 @@ body:has(.table__additional-information) .table {
   padding-bottom: 10px;
 }
 
-.table__td:has(span):hover span {
-  white-space: pre-wrap;
-  overflow: visible;
-  text-overflow: initial;
+.table__td:has(.table__td-name) {
+  position: relative;
 }
 
-.table__td:has(span) span {
+.table__td-name {
+  display: inline-block;
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2464,7 +2515,7 @@ body:has(.table__additional-information) .table {
 }
 
 .table__tabs button {
-  padding: 4px 19px;
+  padding: 9px 19px 10px;
   font-size: 10px;
   line-height: 20px;
   font-family: "DM Sans", sans-serif;
@@ -2478,7 +2529,7 @@ body:has(.table__additional-information) .table {
 }
 
 .table__tabs button:last-child {
-  padding: 4px 11px;
+  padding: 9px 11px 10px;
 }
 
 .table__link {
@@ -2589,6 +2640,10 @@ body:has(.table__additional-information) .table {
 @media (min-width: 992px) {
   .container {
     width: 912px;
+  }
+
+  .quarter .table__inner {
+    min-width: auto;
   }
 }
 

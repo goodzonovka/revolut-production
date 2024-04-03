@@ -4226,6 +4226,25 @@ document.addEventListener('DOMContentLoaded', function () {
   tabsButtons.forEach(function (button) {
     button.addEventListener('click', onTabClick);
   });
+
+  // Добавление тултипа ко всем ячейкам первого столбца
+  var tableCells = document.querySelectorAll('.table__row .table__td:has(.table__td-name)');
+  tableCells.forEach(function (cell) {
+    // Создаем обертку тултипа и текст тултипа
+    var tooltipSpan = document.createElement('span');
+    tooltipSpan.classList.add('tooltiptext');
+    tooltipSpan.textContent = cell.textContent;
+
+    // Обертываем содержимое ячейки в div с классом tooltip
+    var tooltipDiv = document.createElement('div');
+    tooltipDiv.classList.add('tooltip');
+    while (cell.firstChild) {
+      tooltipDiv.appendChild(cell.firstChild); // Перемещаем содержимое ячейки в тултип
+    }
+
+    cell.appendChild(tooltipDiv);
+    tooltipDiv.appendChild(tooltipSpan); // Добавляем текст тултипа
+  });
 });
 /******/ })()
 ;
