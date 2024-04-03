@@ -4210,9 +4210,9 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault();
     var targetId = event.currentTarget.getAttribute('data-trigger');
     document.querySelectorAll('.all-initiatives-wrap').forEach(function (block) {
-      block.style.display = 'none';
+      block.classList.remove('active');
     });
-    document.querySelector(targetId).style.display = 'block';
+    document.querySelector(targetId).classList.add('active');
 
     // tabsButtons.forEach(button => {
     //     if(button === event.currentTarget) {
@@ -4244,6 +4244,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     cell.appendChild(tooltipDiv);
     tooltipDiv.appendChild(tooltipSpan); // Добавляем текст тултипа
+  });
+
+  // Находим все элементы с классом table__td-name
+  var elements = document.querySelectorAll('.table__td-name');
+  elements.forEach(function (element) {
+    var parent = element.parentElement;
+    var rectP = parent.getBoundingClientRect();
+    var widthP = rectP.width; // Точная ширина элемента
+
+    var rect = element.getBoundingClientRect();
+    var width = rect.width; // Точная ширина элемента
+
+    // Проверяем, обрезается ли текст
+    if (width > widthP) {
+      // Если текст обрезается, добавляем класс overflowing
+      element.classList.add('overflowing');
+      element.classList.remove('not-overflowing');
+    } else {
+      // Если текст не обрезается, добавляем класс not-overflowing
+      element.classList.add('not-overflowing');
+      element.classList.remove('overflowing');
+    }
+    element.classList.add('trim');
   });
 });
 /******/ })()
