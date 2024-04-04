@@ -4159,12 +4159,28 @@ document.addEventListener('DOMContentLoaded', function () {
       disableMobile: "true"
     });
   });
-  var editors = document.querySelectorAll('.editor');
+  var editors = document.querySelectorAll('.editor-js');
   if (editors) {
     editors.forEach(function (el, index) {
       var editor = ace.edit(el);
       editor.session.setMode("ace/mode/sql");
       editor.setTheme("ace/theme/tomorrow_night_blue");
+      if (window.innerWidth < 359) {
+        editor.setFontSize(12);
+      } else if (window.innerWidth < 768) {
+        editor.setFontSize(14);
+      } else {
+        editor.setFontSize(16);
+      }
+    });
+  }
+  var editorsReadonly = document.querySelectorAll('.editor-readonly-js');
+  if (editorsReadonly) {
+    editorsReadonly.forEach(function (el, index) {
+      var editor = ace.edit(el);
+      editor.session.setMode("ace/mode/sql");
+      editor.setTheme("ace/theme/tomorrow_night_blue");
+      editor.setReadOnly(true);
       if (window.innerWidth < 359) {
         editor.setFontSize(12);
       } else if (window.innerWidth < 768) {
@@ -4247,8 +4263,6 @@ window.onload = function () {
     tooltipDiv.appendChild(tooltipSpan); // Добавляем текст тултипа
   });
 
-  // setTimeout(function () {
-  // Находим все элементы с классом table__td-name
   var elements = document.querySelectorAll('.table__td-name');
   elements.forEach(function (element) {
     var parent = element.parentElement;
@@ -4270,7 +4284,6 @@ window.onload = function () {
     }
     element.classList.add('trim');
   });
-  // }, 1000);
 };
 /******/ })()
 ;
