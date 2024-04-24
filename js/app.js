@@ -3880,6 +3880,122 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   n = i(373), r = i.n(n), i(187), i(883), i(789), i(686), s["default"] = r(), window.Choices = s["default"];
 }();
 /* end choices.min.js */
+;// CONCATENATED MODULE: ./src/js/chart.js
+function chart_typeof(obj) { "@babel/helpers - typeof"; return chart_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, chart_typeof(obj); }
+function chart_defineProperty(obj, key, value) { key = chart_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function chart_toPropertyKey(arg) { var key = chart_toPrimitive(arg, "string"); return chart_typeof(key) === "symbol" ? key : String(key); }
+function chart_toPrimitive(input, hint) { if (chart_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (chart_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+document.addEventListener('DOMContentLoaded', function () {
+  var _options;
+  if (!document.getElementById('myChart')) return;
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var gradientFill = ctx.createLinearGradient(0, 0, 0, ctx.canvas.clientHeight);
+  gradientFill.addColorStop(0, 'rgba(43, 54, 116, 0.5)');
+  Chart.defaults.plugins.tooltip.backgroundColor = '#FFFFFF';
+  Chart.defaults.plugins.tooltip.titleColor = '#FFFFFF';
+  Chart.defaults.plugins.tooltip.bodyColor = '#2B3674';
+  Chart.defaults.plugins.tooltip.bodyFont = {
+    size: 16
+  };
+  Chart.defaults.plugins.tooltip.bodyAlign = 'center';
+  Chart.defaults.plugins.tooltip.borderWidth = 1;
+  Chart.defaults.plugins.tooltip.borderColor = 'rgba(0, 0, 0, 0.25)';
+  Chart.defaults.plugins.tooltip.boxShadow = '0px 4px 4px rgba(0, 0, 0, 0.25)';
+  Chart.defaults.plugins.tooltip.usePointStyle = true;
+  Chart.defaults.plugins.tooltip.caretSize = 0; // Remove the caret
+  Chart.defaults.plugins.tooltip.caretPadding = 16;
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Churn Rate',
+        data: [3.2, 4.5, 3.9, 4.89, 5.62, 4.89],
+        backgroundColor: gradientFill,
+        borderColor: '#2B3674',
+        borderWidth: 3,
+        tension: 0.4,
+        fill: true,
+        pointBackgroundColor: '#8950FC',
+        pointBorderColor: '#FFFFFF',
+        pointBorderWidth: 2,
+        pointRadius: 7.5,
+        pointHoverRadius: 7.5
+      }]
+    },
+    options: (_options = {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          display: false,
+          beginAtZero: false
+        },
+        x: {
+          grid: {
+            display: false,
+            drawBorder: false
+          },
+          ticks: {
+            color: '#727693',
+            font: {
+              size: 16,
+              weight: 500
+            }
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          enabled: true,
+          displayColors: false,
+          backgroundColor: '#FFFFFF',
+          bodyFontColor: '#2B3674',
+          bodyFont: {
+            size: 16
+          },
+          padding: 8,
+          bodyAlign: 'center',
+          borderColor: 'rgba(0, 0, 0, 0.25)',
+          borderWidth: 1,
+          boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+          borderRadius: 20,
+          callbacks: {
+            title: function title() {
+              return '';
+            },
+            label: function label(context) {
+              var label = context.parsed.y || 0;
+              return label + '%';
+            },
+            labelTextColor: function labelTextColor() {
+              return '#000000';
+            }
+          }
+        }
+      },
+      elements: {
+        point: {
+          radius: 7.5,
+          backgroundColor: '#8950FC',
+          borderColor: '#FFFFFF',
+          borderWidth: 2,
+          hoverRadius: 7.5,
+          hoverBorderWidth: 2
+        },
+        line: {
+          tension: 0.5
+        }
+      }
+    }, chart_defineProperty(_options, "maintainAspectRatio", false), chart_defineProperty(_options, "interaction", {
+      intersect: false,
+      mode: 'index'
+    }), _options)
+  });
+});
 ;// CONCATENATED MODULE: ./src/js/helpers/MobileChecker.js
 function MobileChecker_typeof(obj) { "@babel/helpers - typeof"; return MobileChecker_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, MobileChecker_typeof(obj); }
 function MobileChecker_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4070,6 +4186,7 @@ BaseHelpers_defineProperty(BaseHelpers, "firstScreen", document.querySelector('[
 ;// CONCATENATED MODULE: ./src/js/app.js
 
 
+
 /* проверка на поддержку webp формата */
 
 helpers_BaseHelpers.checkWebpSupport();
@@ -4221,27 +4338,115 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  var tabsButtons = document.querySelectorAll('.tabs_button');
-  function onTabClick(event) {
-    event.preventDefault();
-    var targetId = event.currentTarget.getAttribute('data-trigger');
-    document.querySelectorAll('.all-initiatives-wrap').forEach(function (block) {
-      block.classList.remove('active');
+  var groupButtons = document.querySelectorAll('.table__show-group');
+
+  // Добавляем обработчик событий для каждой кнопки
+  groupButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      // Поиск ближайшего родительского элемента с классом .table__row-group
+      var groupRow = button.closest('.table__row-group');
+
+      // Переключение класса .active
+      groupRow.classList.toggle('active');
     });
-    document.querySelector(targetId).classList.add('active');
-
-    // tabsButtons.forEach(button => {
-    //     if(button === event.currentTarget) {
-    //         button.classList.add('active');
-    //     } else {
-    //         button.classList.remove('active');
-    //     }
-    // });
-  }
-
-  tabsButtons.forEach(function (button) {
-    button.addEventListener('click', onTabClick);
   });
+  var filterButton = document.getElementById('table-filter-btn');
+  var filterList = document.getElementById('table-filter-list');
+  if (filterButton) {
+    filterButton.addEventListener('click', function () {
+      filterList.classList.toggle('active');
+    });
+  }
+  var radioButtons = document.querySelectorAll('.table-filter-selected input[type="radio"]');
+  radioButtons.forEach(function (radio) {
+    radio.addEventListener('change', function () {
+      if (this.checked) {
+        var filterContainer = this.closest('.table-filter-selected');
+        var currentValueDisplay = filterContainer.querySelector('.table-filter-selected__current-value');
+        currentValueDisplay.textContent = this.value;
+      }
+    });
+  });
+  var selectedItems = document.querySelectorAll('.table-filter-selected__item');
+  selectedItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      var filterContainer = this.closest('.table-filter-selected');
+      var list = filterContainer.querySelector('.table-filter__list');
+      list.classList.toggle('active');
+      var allLists = document.querySelectorAll('.table-filter__list');
+      allLists.forEach(function (otherList) {
+        if (otherList !== list) {
+          otherList.classList.remove('active');
+        }
+      });
+    });
+  });
+  var filterItems = document.querySelectorAll('#table-filter-list .table-filter__item');
+
+  // Добавляем обработчик событий на клик для каждого элемента
+  filterItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      this.classList.toggle('active');
+      var targetId = this.getAttribute('data-target');
+      var targetElement = document.querySelector(targetId);
+      targetElement.classList.toggle('active');
+    });
+  });
+  var removeButtons = document.querySelectorAll('.table-filter-selected__remove');
+  removeButtons.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+      event.stopPropagation();
+      var filterSelected = this.closest('.table-filter-selected');
+      filterSelected.classList.remove('active');
+      var targetId = filterSelected.id;
+      var relatedItem = document.querySelector(".table-filter__item[data-target=\"#".concat(targetId, "\"]"));
+      if (relatedItem) {
+        relatedItem.classList.remove('active');
+      }
+    });
+  });
+  document.addEventListener('click', function (event) {
+    if (filterButton) {
+      if (!filterButton.contains(event.target) && !filterList.contains(event.target)) {
+        filterList.classList.remove('active');
+      }
+    }
+    if (!event.target.closest('.table-filter-selected .table-filter-selected__item') && !event.target.closest('.table-filter-selected .table-filter__list')) {
+      var lists = document.querySelectorAll('.table-filter-selected .table-filter__list');
+      lists.forEach(function (list) {
+        list.classList.remove('active');
+      });
+    }
+  });
+
+  // Функция для подсчета и отображения количества выбранных чекбоксов
+  function updateSelectedCount() {
+    var checkboxes = document.querySelectorAll('.table__checkbox');
+    var selectedCount = Array.from(checkboxes).filter(function (checkbox) {
+      return checkbox.checked;
+    }).length;
+    var countDisplay = document.getElementById('selected-count');
+    if (checkboxes.length) {
+      countDisplay.textContent = selectedCount;
+    }
+  }
+  var checkboxes = document.querySelectorAll('.table__checkbox');
+  checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('change', updateSelectedCount);
+  });
+  updateSelectedCount();
+  var showInputGroupName = document.getElementById('show-input-group-name');
+  var inputGroupName = document.getElementById('input-group-name');
+  if (inputGroupName) {
+    inputGroupName.style.display = 'none';
+    showInputGroupName.addEventListener('click', function () {
+      if (inputGroupName.style.display === 'none') {
+        inputGroupName.style.display = 'block';
+      } else {
+        inputGroupName.style.display = 'none';
+      }
+    });
+  }
 });
 window.onload = function () {
   // Добавление тултипа ко всем ячейкам первого столбца

@@ -1403,8 +1403,17 @@ sup {
   position: relative;
 }
 
+.block-goals {
+  display: flex;
+  flex-direction: column;
+}
+
 .chart-demo {
   margin-top: 1rem;
+  position: relative;
+  flex-grow: 1;
+  margin-left: -8px;
+  margin-right: -8px;
 }
 
 .chart-demo img,
@@ -2374,17 +2383,6 @@ input[type=password]::placeholder {
   margin-right: 11px;
 }
 
-.all-initiatives-wrap:not(.active) {
-  height: 0;
-  padding: 0;
-  visibility: hidden;
-  overflow: hidden;
-}
-
-body:has(.table__additional-information) .table {
-  margin-top: 1.5rem;
-}
-
 .table {
   margin-top: 1rem;
 }
@@ -2425,9 +2423,241 @@ body:has(.table__additional-information) .table {
   justify-content: center;
 }
 
+.table.table-view-3 {
+  margin-left: -3px;
+  margin-right: -3px;
+}
+
+.table.table-view-3:has(.table__checkbox:checked) .table__bottom {
+  display: flex;
+}
+
+.table.table-view-3 .table__row-header {
+  background-color: #FCFCFD;
+  box-shadow: none;
+}
+
+.table.table-view-3 .table__row:not(.table__row-header) {
+  border-top: 1px solid #EAECF0;
+}
+
+.table.table-view-3 .table__row.table__row-group {
+  display: block;
+}
+
+.table.table-view-3 .table__row.table__row-group.active .table__show-group:before {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.table.table-view-3 .table__row.table__row-group.active .table__row-group-childs {
+  display: block;
+}
+
+.table.table-view-3 .table__row-group-parent {
+  display: flex;
+  background-color: #E1D3FE;
+}
+
+.table.table-view-3 .table__row-group-parent .table__td:nth-child(2) {
+  padding-right: 3px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.table.table-view-3 .table__row-group-parent .progress {
+  background-color: #EFF2F8;
+}
+
+.table.table-view-3 .table__row-group-childs {
+  display: none;
+  background-color: #F9F6FF;
+}
+
+.table.table-view-3 .table__row-group-childs .table__td:nth-child(3) {
+  font-weight: 500;
+}
+
 .table.table-view-3 .table__th,
 .table.table-view-3 .table__td {
-  width: 16.66%;
+  flex: initial;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #727693;
+}
+
+.table.table-view-3 .table__th:first-child,
+.table.table-view-3 .table__th:last-child,
+.table.table-view-3 .table__td:first-child,
+.table.table-view-3 .table__td:last-child {
+  padding-left: 0;
+  padding-right: 0;
+  justify-content: center;
+}
+
+.table.table-view-3 .table__th:first-child,
+.table.table-view-3 .table__td:first-child {
+  width: 5.99%;
+}
+
+.table.table-view-3 .table__th:nth-child(2),
+.table.table-view-3 .table__td:nth-child(2) {
+  width: 15.7%;
+}
+
+.table.table-view-3 .table__th:nth-child(3),
+.table.table-view-3 .table__td:nth-child(3) {
+  width: 14.157%;
+}
+
+.table.table-view-3 .table__th:nth-child(4),
+.table.table-view-3 .table__td:nth-child(4) {
+  width: 10.708%;
+}
+
+.table.table-view-3 .table__th:nth-child(5),
+.table.table-view-3 .table__td:nth-child(5) {
+  width: 13.884%;
+}
+
+.table.table-view-3 .table__th:nth-child(6),
+.table.table-view-3 .table__td:nth-child(6) {
+  width: 9.71%;
+}
+
+.table.table-view-3 .table__th:nth-child(7),
+.table.table-view-3 .table__td:nth-child(7) {
+  width: 16.062%;
+}
+
+.table.table-view-3 .table__th:nth-child(8),
+.table.table-view-3 .table__td:nth-child(8) {
+  width: 10.073%;
+}
+
+.table.table-view-3 .table__th:nth-child(9),
+.table.table-view-3 .table__td:nth-child(9) {
+  width: 3.63%;
+}
+
+.table.table-view-3 .table__th {
+  padding: 11px 24px 12px;
+}
+
+.table.table-view-3 .table__th:nth-child(3) svg,
+.table.table-view-3 .table__th:nth-child(8) svg {
+  margin-left: 0.75rem;
+}
+
+.table.table-view-3 .table__th:nth-child(6) {
+  padding-left: 10px;
+}
+
+.table.table-view-3 .table__th svg {
+  margin-left: 0.25rem;
+}
+
+.table.table-view-3 .table__td {
+  padding: 10px 14px 11px 24px;
+}
+
+.table.table-view-3 .table__td:nth-child(2),
+.table.table-view-3 .table__td:nth-child(3) {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.table.table-view-3 .table__td:nth-child(3),
+.table.table-view-3 .table__td:nth-child(4),
+.table.table-view-3 .table__td:nth-child(7) {
+  font-weight: 400;
+}
+
+.table.table-view-3 .table__td:nth-child(5) {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 6px;
+}
+
+.table.table-view-3 .table__td:nth-child(5) .status {
+  margin: 0 2.5px 5px;
+}
+
+.table.table-view-3 .table__td:nth-child(6) {
+  justify-content: center;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+.table.table-view-3 .table__td:nth-child(7) {
+  padding-right: 20px;
+}
+
+.table.table-view-3 .table__td .status {
+  display: inline-flex;
+  width: auto;
+  min-width: 60px;
+  padding: 2px 4px;
+  line-height: 18px;
+}
+
+.table.table-view-3 .checkbox input {
+  display: none;
+}
+
+.table.table-view-3 .checkbox input:checked + .checkbox__icon {
+  background: #0070FF url("../images/icons/icons.svg#check") no-repeat center;
+  background-size: 14px;
+  border-color: #0070FF;
+}
+
+.table.table-view-3 .checkbox__icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #D0D5DD;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.table.table-view-3 .checkbox__icon:hover {
+  border-color: #0070FF;
+}
+
+.table.table-view-3 .progress__value {
+  width: 43px;
+}
+
+.table.table-view-3 .table__dots {
+  width: 16px;
+  height: 16px;
+  padding-left: 10px;
+}
+
+.table.table-view-3 .table__show-group {
+  font-weight: 500;
+  position: relative;
+  padding-right: 24px;
+}
+
+.no-webp .table.table-view-3 .table__show-group:before{
+  background: url("../images/all-initiatives/chevron-small.png") no-repeat; }
+
+.table.table-view-3 .table__show-group:before {
+  background-size: contain !important;
+}
+
+.table.table-view-3 .table__show-group:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 13px;
+  pointer-events: none;
 }
 
 .table:has(.table__td-goal) .table__td,
@@ -2468,6 +2698,10 @@ body:has(.table__additional-information) .table {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
+}
+
+.table__top:has(.table-filter__btn) {
+  padding: 7.5px 3rem;
 }
 
 .table__scroll {
@@ -2562,36 +2796,6 @@ body:has(.table__additional-information) .table {
   color: transparent;
 }
 
-.table__additional-information {
-  display: flex;
-  margin-top: 1.5rem;
-}
-
-.table__additional-information .block {
-  min-width: 236px;
-  padding: 19px 16px;
-  font-size: 24px;
-  line-height: 29px;
-  font-weight: 600;
-}
-
-.table__additional-information .block:not(:last-child) {
-  margin-right: 1.5rem;
-}
-
-.table__additional-information .icon-block {
-  width: 56px;
-  height: 56px;
-}
-
-.table__additional-information .text-small {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  line-height: 19px;
-  font-weight: 400;
-  letter-spacing: -0.27px;
-}
-
 .table__tabs {
   display: flex;
   align-items: center;
@@ -2639,7 +2843,7 @@ body:has(.table__additional-information) .table {
   justify-content: center;
   align-items: center;
   padding: 6px 0;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 26px;
   white-space: nowrap;
   color: #fff;
@@ -2662,6 +2866,14 @@ body:has(.table__additional-information) .table {
   background-color: #8950FC;
 }
 
+.table .status-5 {
+  background-color: #727693;
+}
+
+.table .status-6 {
+  background-color: #A478FD;
+}
+
 .table .progress {
   flex-grow: 1;
   height: 12px;
@@ -2678,6 +2890,222 @@ body:has(.table__additional-information) .table {
 .table .progress__value {
   width: 59px;
   flex-shrink: 0;
+}
+
+.table-filter {
+  position: relative;
+}
+
+.table-filter__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -7.5px -7px;
+}
+
+.table-filter__wrap > * {
+  margin: 0 7.5px 7px;
+}
+
+.table-filter__wrap:has(.table-filter-selected.active) .table-filter__btn {
+  background-position: center !important;
+}
+
+.table-filter__wrap:has(.table-filter-selected.active) .table-filter__btn {
+  padding: 0;
+  font-size: 0;
+  width: 45px;
+  height: 45px;
+}
+
+.no-webp .table-filter__btn{
+  background: #727693 url("../images/all-initiatives/filter.png") no-repeat left 15px center; }
+
+.table-filter__btn {
+  background-size: 20px !important;
+}
+
+.table-filter__btn {
+  padding: 0 17px 0 41px;
+  line-height: 45px;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.table-filter__list {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 100%;
+  width: 379px;
+  margin-top: 6px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #727693;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-filter__list.active {
+  display: block;
+}
+
+.table-filter__item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.table-filter__item.active {
+  background: #868CB1;
+}
+
+.table-filter__item:not(:last-child) {
+  border-bottom: 1px solid #EAECF0;
+}
+
+.table-filter__item:has(label) {
+  padding: 0;
+}
+
+.table-filter__item:has(label) label {
+  padding: 10px 16px;
+}
+
+.table-filter__item label {
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+}
+
+.table-filter__item label:hover .checkbox__icon {
+  border-color: #0070ff;
+}
+
+.table-filter__item .checkbox {
+  margin-right: 37px;
+}
+
+.table-filter__item .checkbox .checkbox__icon {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.table-filter__img {
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+}
+
+.table-filter-selected {
+  display: none;
+  position: relative;
+}
+
+.table-filter-selected.active {
+  display: block;
+}
+
+.table-filter-selected__item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 329px;
+  height: 45px;
+  padding: 0 35px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #727693;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.no-webp .table-filter-selected__remove{
+  background: url("../images/all-initiatives/filter/close.png") no-repeat right 12px center; }
+
+.table-filter-selected__remove {
+  background-size: 18px !important;
+}
+
+.table-filter-selected__remove {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  transition: none;
+}
+
+.table__bottom {
+  display: none;
+  padding: 7.5px 3rem;
+  font-size: 0.75rem;
+  line-height: 18px;
+  font-weight: 500;
+  border-top: 1px solid #EAECF0;
+}
+
+.table__bottom.active {
+  display: flex;
+}
+
+.table__bottom .table__selected,
+.table__bottom .table__group {
+  padding-top: 13.5px;
+  padding-bottom: 13.5px;
+  color: #fff;
+  background-color: #727693;
+  border-radius: 10px;
+}
+
+.table__bottom .table__selected:not(:last-child),
+.table__bottom .table__group:not(:last-child) {
+  margin-right: 11px;
+}
+
+.table__bottom .table__input-group-name {
+  display: none;
+  width: 304px;
+  margin-left: 10px;
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #727693;
+  background-color: #EFF2F8;
+  border-radius: 10px;
+}
+
+.table__bottom .table__input-group-name::-moz-placeholder {
+  font-style: italic;
+}
+
+.table__bottom .table__input-group-name::placeholder {
+  font-style: italic;
+}
+
+.table__selected {
+  padding-left: 9.5px;
+  padding-right: 9.5px;
+}
+
+.no-webp .table__group{
+  background-image: url("../images/all-initiatives/group.png"); }
+
+.table__group {
+  background-size: 13px !important;
+}
+
+.table__group {
+  padding-left: 37.5px;
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: left 10.5px center;
 }
 
 /**
@@ -2800,6 +3228,10 @@ body:has(.table__additional-information) .table {
     display: none;
   }
 
+  .table-filter__btn:hover {
+    background-color: #5d6178 !important;
+  }
+
   .table__tabs button:not(.active):hover,
   .table-pagination__item:hover {
     color: #8950FC;
@@ -2832,6 +3264,26 @@ body:has(.table__additional-information) .table {
   }
 }
 
+@media (max-width: 1439px) {
+  .table.table-view-3 .table__th {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .table.table-view-3 .table__td {
+    padding-left: 14px;
+  }
+
+  .table.table-view-3 .table__td:nth-child(5) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .table.table-view-3 .table__row-group-parent .table__td:nth-child(2) {
+    padding-right: 0;
+  }
+}
+
 @media (max-width: 1365px) {
   .content-list-blocks .block {
     min-height: 300px;
@@ -2840,11 +3292,34 @@ body:has(.table__additional-information) .table {
   .block-goals__header {
     padding-right: 0;
   }
+
+  .table.table-view-3 .table__th,
+  .table.table-view-3 .table__td {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .table.table-view-3 .table__td:nth-child(6) {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .table.table-view-3 .table__td:nth-child(7) {
+    padding-right: 8px;
+  }
+
+  .table.table-view-3 .table__show-group {
+    padding-right: 16px;
+  }
 }
 
 @media (max-width: 1279px) {
   .content-list-blocks .block {
     min-height: 260px;
+  }
+
+  .table.table-view-3 .table__inner {
+    min-width: 940px;
   }
 }
 
@@ -3011,6 +3486,10 @@ body:has(.table__additional-information) .table {
     min-width: 608px;
   }
 
+  .content-list-blocks .block {
+    min-height: 360px;
+  }
+
   .table__title {
     font-size: 20px;
     line-height: 25px;
@@ -3166,33 +3645,6 @@ body:has(.table__additional-information) .table {
 
   .table__top {
     padding: 1rem;
-  }
-
-  .table__additional-information .block {
-    flex-direction: column;
-    align-items: flex-start;
-    width: calc(50% - 0.5rem);
-    min-width: auto;
-    padding: 12px;
-  }
-
-  .table__additional-information .block:not(:last-child) {
-    margin-right: 1rem;
-  }
-
-  .table__additional-information .block .icon-block {
-    margin-right: 0;
-    margin-bottom: 12px;
-  }
-
-  .table__additional-information .block .icon-block-right {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .table__additional-information .block .icon-block-right .text-small {
-    flex-grow: 1;
   }
 }
 
@@ -3374,3 +3826,11 @@ body:has(.table__additional-information) .table {
 }
 
 .webp .editor__error:before{ background: url(../images/exclamation.webp) no-repeat left center; }
+
+.webp .table.table-view-3 .table__show-group:before{ background: url(../images/all-initiatives/chevron-small.webp) no-repeat; }
+
+.webp .table-filter__btn{ background: #727693 url(../images/all-initiatives/filter.webp) no-repeat left 15px center; }
+
+.webp .table-filter-selected__remove{ background: url(../images/all-initiatives/filter/close.webp) no-repeat right 12px center; }
+
+.webp .table__group{ background-image: url(../images/all-initiatives/group.webp); }
