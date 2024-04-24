@@ -4196,6 +4196,25 @@ helpers_BaseHelpers.headerFixed();
 /* end проверка на поддержку webp формата */
 
 document.addEventListener('DOMContentLoaded', function () {
+  function setPercentage(svg, percentage) {
+    var circle = svg.querySelector('.active-path');
+    var text = svg.querySelector('.percent-text');
+    var circumference = 2 * Math.PI * circle.getAttribute('r');
+    var activeLength = percentage / 100 * circumference;
+    var inactiveLength = circumference - activeLength;
+    circle.setAttribute('stroke-dasharray', "".concat(activeLength, " ").concat(inactiveLength));
+    if (svg.classList.contains('no-goals')) {
+      text.textContent = '-';
+    } else {
+      text.textContent = "".concat(percentage, "%");
+    }
+    svg.style.display = 'block';
+  }
+  var svgs = document.querySelectorAll('.circle-percent-js');
+  svgs.forEach(function (svg) {
+    var percentage = svg.dataset.percent;
+    setPercentage(svg, percentage);
+  });
   var choicesSelects = document.querySelectorAll('.choices-select-js');
   choicesSelects.forEach(function (element) {
     new Choices(element, {
