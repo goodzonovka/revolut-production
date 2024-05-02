@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&display=swap&_v=20240502131354" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20240502131354">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css?_v=20240502131354" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css?_v=20240502131354">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20240502131354"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240502131354"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240502131354"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?_v=20240502131354"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js?_v=20240502131354"></script>
+    <title>ROI Custom</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+
+    <button class="sidebar__close">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#cancel"></use>
+        </svg>
+    </button>
+
+    <a href="/" class="logo">
+        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" width="48" height="48" alt="Revolut"></picture>
+        <span>Revolut</span>
+    </a>
+
+    <div class="sidebar-list__title text-small">Main Menu</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="/" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#home"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="goals.html" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#chart"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Goals</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="okta-integration.html" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#desk"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Initiatives</span>
+
+                <span class="sidebar-link__counter">1</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="roi.html" class="sidebar-link active">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#roi"></use>
+                </svg>
+
+                <span class="sidebar-link__title">ROI</span>
+            </a>
+        </li>
+    </ul>
+
+
+    <div class="sidebar-list__title text-small">Others</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="settings.html" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#setup"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Settings</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#question"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Support</span>
+            </a>
+        </li>
+    </ul>
+
+    <button class="sidebar__logout">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#logout"></use>
+        </svg>
+        Log out
+    </button>
+</div>
+
+    <div class="content">
+
+        <div class="content__header">
+            <button class="sidebar__btn-open" aria-label="Open menu">
+                <svg width="32" height="32">
+                    <use href="/images/icons/icons.svg#hamburger"></use>
+                </svg>
+            </button>
+
+            <div class="user-greeting">
+    <span>Hello, Jane Doe!</span>
+    <div class="user-greeting__icon">
+        <svg width="35" height="35">
+            <use href="/images/icons/icons.svg#user-fill"></use>
+        </svg>
+    </div>
+</div>
+        </div>
+
+        <ul class="breadcrumbs">
+            <li>
+                <a href="#">
+                    ROI
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-right"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                Custom
+            </li>
+        </ul>
+
+        <div class="block roi">
+    <div class="roi__header">
+        <div class="roi__buttons">
+            <a href="roi.html" class="roi__button">MRR</a>
+            <a href="#" class="roi__button">
+                <i>Churn <span>(coming soon)</span></i>
+            </a>
+            <a href="#" class="roi__button">
+                <i>Users <span>(coming soon)</span></i>
+            </a>
+            <a href="roi-custom.html" class="roi__button active">
+                <i>Custom</i>
+            </a>
+        </div>
+
+        <div class="roi__sort">
+            <select class="choices-select-js">
+                <option value="">Select period</option>
+                <option value="1">Last 7 Days</option>
+                <option value="2">Last Month</option>
+                <option value="3">Last Year</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="roi-graph">
+        <ul class="roi-graph__info">
+            <li>
+                <div class="title green-circle">Revenue</div>
+                <div class="value">356,928</div>
+            </li>
+            <li>
+                <div class="title navy-blue-circle">Cost</div>
+                <div class="value">275,588</div>
+            </li>
+            <li>
+                <div class="title">ROI</div>
+                <div class="value">81,340</div>
+            </li>
+            <li>
+                <div class="title">Trend</div>
+                <div class="value">
+                    <picture><source srcset="/images/roi/trend.webp" type="image/webp"><img src="/images/roi/trend.png" width="26" height="26" alt=""></picture>
+                </div>
+            </li>
+        </ul>
+        <div class="roi-graph__inner">
+            <picture><source srcset="/images/roi/graph-big-demo.webp" type="image/webp"><img src="/images/roi/graph-big-demo.png" width="834" height="255" alt=""></picture>
+        </div>
+    </div>
+
+    <div class="roi__table table">
+        <div class="table__top">
+            <div class="table-header__select">Select</div>
+            <div class="table-filter__wrap">
+
+    <div id="table-filter-selected-product" class="table-filter-selected">
+
+    <div class="table-filter-selected__item">
+        <span>Product <b>by availability </b> <span class="table-filter-selected__current-value">in Stock</span> </span>
+        <button class="table-filter-selected__remove"></button>
+    </div>
+    <ul class="table-filter__list">
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="product" value="in Stock" checked="checked">
+                    <span class="checkbox__icon"></span>
+                </span>
+                In Stock
+            </label>
+        </li>
+
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="product" value="out of Stock">
+                    <span class="checkbox__icon"></span>
+                </span>
+                Out of Stock
+            </label>
+        </li>
+
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="product" value="backordered">
+                    <span class="checkbox__icon"></span>
+                </span>
+                Backordered
+            </label>
+        </li>
+    </ul>
+</div>
+
+<div id="table-filter-selected-date" class="table-filter-selected">
+
+    <div class="table-filter-selected__item">
+        <span>Create <b>is after</b> <span class="table-filter-selected__current-value">1 month ago</span> </span>
+        <button class="table-filter-selected__remove"></button>
+    </div>
+    <ul class="table-filter__list">
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="date" value="1 month ago" checked="checked">
+                    <span class="checkbox__icon"></span>
+                </span>
+                1 month ago
+            </label>
+        </li>
+
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="date" value="2 month ago">
+                    <span class="checkbox__icon"></span>
+                </span>
+                2 month ago
+            </label>
+        </li>
+
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="date" value="3 month ago">
+                    <span class="checkbox__icon"></span>
+                </span>
+                3 month ago
+            </label>
+        </li>
+    </ul>
+</div>
+
+<div id="table-filter-selected-goal" class="table-filter-selected">
+    <div class="table-filter-selected__item">
+        <span>Goal <b>is</b> <span class="table-filter-selected__current-value">to Start</span></span>
+        <button class="table-filter-selected__remove"></button>
+    </div>
+    <ul class="table-filter__list">
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="goal" value="to Start" checked="checked">
+                    <span class="checkbox__icon"></span>
+                </span>
+                To Start
+            </label>
+        </li>
+
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="goal" value="in Progress">
+                    <span class="checkbox__icon"></span>
+                </span>
+                In Progress
+            </label>
+        </li>
+
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="goal" value="done">
+                    <span class="checkbox__icon"></span>
+                </span>
+                Done
+            </label>
+        </li>
+    </ul>
+</div>
+
+<div id="table-filter-selected-status" class="table-filter-selected">
+    <div class="table-filter-selected__item">
+        <span>Status <b>by progress is</b> <span class="table-filter-selected__current-value">not started</span></span>
+        <button class="table-filter-selected__remove"></button>
+    </div>
+    <ul class="table-filter__list">
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="status" value="Not Started" checked="checked">
+                    <span class="checkbox__icon"></span>
+                </span>
+                Not Started
+            </label>
+        </li>
+
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="status" value="in Progress">
+                    <span class="checkbox__icon"></span>
+                </span>
+                In Progress
+            </label>
+        </li>
+
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="status" value="done">
+                    <span class="checkbox__icon"></span>
+                </span>
+                Done
+            </label>
+        </li>
+    </ul>
+</div>
+
+<div id="table-filter-selected-epics" class="table-filter-selected">
+    <div class="table-filter-selected__item">
+        <span>Epics <b>by scale is</b> <span class="table-filter-selected__current-value">Small</span></span>
+        <button class="table-filter-selected__remove"></button>
+    </div>
+    <ul class="table-filter__list">
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="epics" value="Small" checked="checked">
+                    <span class="checkbox__icon"></span>
+                </span>
+                Small
+            </label>
+        </li>
+
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="epics" value="Medium">
+                    <span class="checkbox__icon"></span>
+                </span>
+                Medium
+            </label>
+        </li>
+
+        <li class="table-filter__item">
+            <label>
+                <span class="checkbox">
+                    <input type="radio" name="epics" value="Large">
+                    <span class="checkbox__icon"></span>
+                </span>
+                Large
+            </label>
+        </li>
+    </ul>
+</div>
+
+    <div class="table-filter">
+        <button id="table-filter-btn" class="table-filter__btn table-filter__btn-2">Filter</button>
+        <ul id="table-filter-list" class="table-filter__list">
+            <li class="table-filter__item" data-target="#table-filter-selected-product">
+                <div class="table-filter__img">
+                    <img src="images/all-initiatives/filter/product.svg" alt="">
+                </div>
+                Product
+            </li>
+            <li class="table-filter__item" data-target="#table-filter-selected-date">
+                <div class="table-filter__img">
+                    <img src="images/all-initiatives/filter/calendar.svg" alt="">
+                </div>
+                Date
+            </li>
+            <li class="table-filter__item" data-target="#table-filter-selected-goal">
+                <div class="table-filter__img">
+                    <img src="images/all-initiatives/filter/goal.svg" alt="">
+                </div>
+                Goal
+            </li>
+            <li class="table-filter__item" data-target="#table-filter-selected-status">
+                <div class="table-filter__img">
+                    <img src="images/all-initiatives/filter/status.svg" alt="">
+                </div>
+                Status
+            </li>
+            <li class="table-filter__item" data-target="#table-filter-selected-epics">
+                <div class="table-filter__img">
+                    <img src="images/all-initiatives/filter/epics.svg" alt="">
+                </div>
+                Epics
+            </li>
+        </ul>
+    </div>
+</div>
+        </div>
+        <div class="table__scroll">
+            <div class="table__inner">
+                <div class="table__row">
+                    <div class="table__td">
+                        <label class="checkbox">
+                            <input type="checkbox" class="table__checkbox">
+                            <span class="checkbox__icon"></span>
+                        </label>
+                    </div>
+
+                    <div class="table__td">
+                        <span class="table__td-name">Okta integration</span>
+                    </div>
+
+                    <div class="table__td">
+                        Authentification
+                    </div>
+
+                    <div class="table__td">
+                        <div class="status status-4">Revenue</div>
+                    </div>
+
+                    <div class="table__td">68 days ago</div>
+
+                    <div class="table__td">
+                        <div class="status status-2">Done</div>
+                    </div>
+
+                    <div class="table__td table__td-progress">
+                        <div class="progress__value">95.5%</div>
+                        <div class="progress">
+                            <div class="progress__active" style="width:95.5%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table__row">
+                    <div class="table__td">
+                        <label class="checkbox">
+                            <input type="checkbox" class="table__checkbox">
+                            <span class="checkbox__icon"></span>
+                        </label>
+                    </div>
+
+                    <div class="table__td">
+                        <span class="table__td-name">Stripe integration</span>
+                    </div>
+
+                    <div class="table__td">
+                        Authentification
+                    </div>
+
+                    <div class="table__td">
+                        <div class="status status-4">Churn</div>
+                    </div>
+
+                    <div class="table__td">38 days ago</div>
+
+                    <div class="table__td">
+                        <div class="status status-2">Done</div>
+                    </div>
+
+                    <div class="table__td table__td-progress">
+                        <div class="progress__value">95.5%</div>
+                        <div class="progress">
+                            <div class="progress__active" style="width:95.5%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table__row">
+                    <div class="table__td">
+                        <label class="checkbox">
+                            <input type="checkbox" class="table__checkbox">
+                            <span class="checkbox__icon"></span>
+                        </label>
+                    </div>
+
+                    <div class="table__td">
+                        <span class="table__td-name">Okta integration</span>
+                    </div>
+
+                    <div class="table__td">
+                        US Expansion
+                    </div>
+
+                    <div class="table__td">
+                        <div class="status status-4">Churn</div>
+                    </div>
+
+                    <div class="table__td">12 days ago</div>
+
+                    <div class="table__td">
+                        <div class="status status-2">Done</div>
+                    </div>
+
+                    <div class="table__td table__td-progress">
+                        <div class="progress__value">95.5%</div>
+                        <div class="progress">
+                            <div class="progress__active" style="width:95.5%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table__row">
+                    <div class="table__td">
+                        <label class="checkbox">
+                            <input type="checkbox" class="table__checkbox">
+                            <span class="checkbox__icon"></span>
+                        </label>
+                    </div>
+
+                    <div class="table__td">
+                        <span class="table__td-name">Okta integration</span>
+                    </div>
+
+                    <div class="table__td">
+                        Onboarding 2.0
+                    </div>
+
+                    <div class="table__td">
+                        <div class="status status-4">MRR</div>
+                    </div>
+
+                    <div class="table__td">45 days ago</div>
+
+                    <div class="table__td">
+                        <div class="status status-2">Done</div>
+                    </div>
+
+                    <div class="table__td table__td-progress">
+                        <div class="progress__value">95.5%</div>
+                        <div class="progress">
+                            <div class="progress__active" style="width:95.5%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table__row">
+                    <div class="table__td">
+                        <label class="checkbox">
+                            <input type="checkbox" class="table__checkbox">
+                            <span class="checkbox__icon"></span>
+                        </label>
+                    </div>
+
+                    <div class="table__td">
+                        <span class="table__td-name">Okta integration</span>
+                    </div>
+
+                    <div class="table__td">
+                        Onboarding 2.0
+                    </div>
+
+                    <div class="table__td">
+                        <div class="status status-4">User</div>
+                    </div>
+
+                    <div class="table__td">2 days ago</div>
+
+                    <div class="table__td">
+                        <div class="status status-2">Done</div>
+                    </div>
+
+                    <div class="table__td table__td-progress">
+                        <div class="progress__value">95.5%</div>
+                        <div class="progress">
+                            <div class="progress__active" style="width:95.5%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table__row">
+                    <div class="table__td">
+                        <label class="checkbox">
+                            <input type="checkbox" class="table__checkbox">
+                            <span class="checkbox__icon"></span>
+                        </label>
+                    </div>
+
+                    <div class="table__td">
+                        <span class="table__td-name">Okta integration</span>
+                    </div>
+
+                    <div class="table__td">
+                        Maintenance
+                    </div>
+
+                    <div class="table__td">
+                        <div class="status status-4">User</div>
+                    </div>
+
+                    <div class="table__td">68 days ago</div>
+
+                    <div class="table__td">
+                        <div class="status status-2">Done</div>
+                    </div>
+
+                    <div class="table__td table__td-progress">
+                        <div class="progress__value">95.5%</div>
+                        <div class="progress">
+                            <div class="progress__active" style="width:95.5%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+<script src="js/app.min.js?_v=20240502131354"></script>
+</body>
+</html>

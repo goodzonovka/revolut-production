@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&display=swap&_v=20240502131354" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20240502131354">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css?_v=20240502131354" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css?_v=20240502131354">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20240502131354"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240502131354"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240502131354"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?_v=20240502131354"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js?_v=20240502131354"></script>
+    <title>ROI</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+
+    <button class="sidebar__close">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#cancel"></use>
+        </svg>
+    </button>
+
+    <a href="/" class="logo">
+        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" width="48" height="48" alt="Revolut"></picture>
+        <span>Revolut</span>
+    </a>
+
+    <div class="sidebar-list__title text-small">Main Menu</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="/" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#home"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="goals.html" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#chart"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Goals</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="okta-integration.html" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#desk"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Initiatives</span>
+
+                <span class="sidebar-link__counter">1</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="roi.html" class="active sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#roi"></use>
+                </svg>
+
+                <span class="sidebar-link__title">ROI</span>
+            </a>
+        </li>
+    </ul>
+
+
+    <div class="sidebar-list__title text-small">Others</div>
+
+    <ul class="sidebar-list">
+        <li>
+            <a href="settings.html" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#setup"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Settings</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="sidebar-link">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#question"></use>
+                </svg>
+
+                <span class="sidebar-link__title">Support</span>
+            </a>
+        </li>
+    </ul>
+
+    <button class="sidebar__logout">
+        <svg width="24" height="24">
+            <use href="/images/icons/icons.svg#logout"></use>
+        </svg>
+        Log out
+    </button>
+</div>
+
+    <div class="content">
+
+        <div class="content__header">
+            <button class="sidebar__btn-open" aria-label="Open menu">
+                <svg width="32" height="32">
+                    <use href="/images/icons/icons.svg#hamburger"></use>
+                </svg>
+            </button>
+
+            <div class="user-greeting">
+    <span>Hello, Jane Doe!</span>
+    <div class="user-greeting__icon">
+        <svg width="35" height="35">
+            <use href="/images/icons/icons.svg#user-fill"></use>
+        </svg>
+    </div>
+</div>
+        </div>
+
+        <ul class="breadcrumbs">
+            <li>
+                <a href="#">
+                    ROI
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-right"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                MRR
+            </li>
+        </ul>
+
+        <div class="block roi">
+    <div class="roi__header">
+        <div class="roi__buttons">
+            <a href="roi.html" class="active roi__button">MRR</a>
+            <a href="#" class="roi__button">
+                <i>Churn <span>(coming soon)</span></i>
+            </a>
+            <a href="#" class="roi__button">
+                <i>Users <span>(coming soon)</span></i>
+            </a>
+            <a href="roi-custom.html" class="roi__button">
+                <i>Custom</i>
+            </a>
+        </div>
+
+        <div class="roi__sort">
+            <select class="choices-select-js">
+                <option value="">Group By</option>
+                <option value="1">ROI of Product</option>
+                <option value="2">Epics</option>
+                <option value="3">Groups or initiatives</option>
+            </select>
+
+            <select class="choices-select-js">
+                <option value="">Select Period</option>
+                <option value="1">last 6 months</option>
+                <option value="2">last year</option>
+                <option value="3">previous year</option>
+            </select>
+        </div>
+    </div>
+
+    <ul class="roi__list">
+        <li class="roi-item">
+            <div class="active roi-item__header toggle-button-js" data-trigger="#graph-1">
+                <div>
+                    <div class="title">US EXPANSIOn</div>
+                    <div class="text">in expected range</div>
+                </div>
+
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#chevron-up"></use>
+                </svg>
+            </div>
+
+            <div id="graph-1" class="active roi-item__content">
+                <div class="roi-item__graph">
+                    <picture><source srcset="/images/roi/graph-demo.webp" type="image/webp"><img src="/images/roi/graph-demo.png" width="537" height="185" alt=""></picture>
+                </div>
+
+                <ul class="roi-item__bottom">
+                    <li>
+                        <div class="title">Cost</div>
+                        <div class="value">608,762</div>
+                        <svg width="16" height="16" class="up">
+                            <use href="/images/icons/icons.svg#arrow-bold"></use>
+                        </svg>
+                    </li>
+
+                    <li>
+                        <div class="title">Revenue</div>
+                        <div class="value">242,928</div>
+                        <svg width="16" height="16">
+                            <use href="/images/icons/icons.svg#arrow-bold"></use>
+                        </svg>
+                    </li>
+
+                    <li class="border-top">
+                        <div class="title">ROI</div>
+                        <div class="value">30,817</div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="roi-item">
+            <div class="active roi-item__header toggle-button-js" data-trigger="#graph-2">
+                <div>
+                    <div class="title">Onboarding 2.0</div>
+                    <div class="text">in expected range</div>
+                </div>
+
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#chevron-up"></use>
+                </svg>
+            </div>
+
+            <div id="graph-2" class="active roi-item__content">
+                <div class="roi-item__graph">
+                    <picture><source srcset="/images/roi/graph-demo.webp" type="image/webp"><img src="/images/roi/graph-demo.png" width="537" height="185" alt=""></picture>
+                </div>
+
+                <ul class="roi-item__bottom">
+                    <li>
+                        <div class="title">Cost</div>
+                        <div class="value">608,762</div>
+                        <svg width="16" height="16" class="green">
+                            <use href="/images/icons/icons.svg#arrow-bold"></use>
+                        </svg>
+                    </li>
+
+                    <li>
+                        <div class="title">Revenue</div>
+                        <div class="value">242,928</div>
+                        <svg width="16" height="16" class="up green">
+                            <use href="/images/icons/icons.svg#arrow-bold"></use>
+                        </svg>
+                    </li>
+
+                    <li class="border-top">
+                        <div class="title">ROI</div>
+                        <div class="value">30,817</div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="roi-item">
+            <div class="active roi-item__header toggle-button-js roi-item__header-red" data-trigger="#graph-3">
+                <div>
+                    <div class="title">Cash back product</div>
+                    <div class="text">Negative ROI</div>
+                </div>
+
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#chevron-up"></use>
+                </svg>
+            </div>
+
+            <div id="graph-3" class="active roi-item__content">
+                <ul class="roi-item__bottom">
+                    <li>
+                        <div class="title">Cost</div>
+                        <div class="value">608,762</div>
+                        <svg width="16" height="16" class="up">
+                            <use href="/images/icons/icons.svg#arrow-bold"></use>
+                        </svg>
+                    </li>
+
+                    <li>
+                        <div class="title">Revenue</div>
+                        <div class="value">50,002</div>
+                        <svg width="16" height="16">
+                            <use href="/images/icons/icons.svg#arrow-bold"></use>
+                        </svg>
+                    </li>
+
+                    <li>
+                        <div class="title">ROI</div>
+                        <div class="value">-558,760</div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="roi-item">
+            <div class="active roi-item__header toggle-button-js roi-item__header-yellow" data-trigger="#graph-4">
+                <div>
+                    <div class="title">Cash back product</div>
+                    <div class="text">Negative ROI</div>
+                </div>
+
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#chevron-up"></use>
+                </svg>
+            </div>
+
+            <div id="graph-4" class="active roi-item__content">
+                <ul class="roi-item__bottom">
+                    <li>
+                        <div class="title">Cost</div>
+                        <div class="value">608,762</div>
+                        <svg width="16" height="16">
+                            <use href="/images/icons/icons.svg#arrow-bold"></use>
+                        </svg>
+                    </li>
+
+                    <li>
+                        <div class="title">Revenue</div>
+                        <div class="value">242,928</div>
+                        <svg width="16" height="16" class="up green">
+                            <use href="/images/icons/icons.svg#arrow-bold"></use>
+                        </svg>
+                    </li>
+
+                    <li>
+                        <div class="title">ROI</div>
+                        <div class="value">30,817</div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+    </div>
+</div>
+
+<script src="js/app.min.js?_v=20240502131354"></script>
+</body>
+</html>

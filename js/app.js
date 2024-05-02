@@ -4445,7 +4445,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return checkbox.checked;
     }).length;
     var countDisplay = document.getElementById('selected-count');
-    if (checkboxes.length) {
+    if (checkboxes.length && countDisplay) {
       countDisplay.textContent = selectedCount;
     }
   }
@@ -4466,6 +4466,27 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+  var toggleButtons = document.querySelectorAll('.toggle-button-js');
+
+  // Добавляем обработчик события клика каждой кнопке
+  toggleButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      // Получаем селектор из data-trigger
+      var selector = button.getAttribute('data-trigger');
+      var target = document.querySelector(selector);
+
+      // Переключаем класс 'active' и стиль display для целевого элемента
+      if (target) {
+        target.classList.toggle('active');
+        button.classList.toggle('active');
+        if (target.style.display === 'block' || target.style.display === '') {
+          target.style.display = 'none';
+        } else {
+          target.style.display = 'block';
+        }
+      }
+    });
+  });
 });
 window.onload = function () {
   // Добавление тултипа ко всем ячейкам первого столбца
