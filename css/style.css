@@ -1353,48 +1353,6 @@ sup {
   border-color: #0070FF;
 }
 
-/* Стиль тултипа */
-
-.tooltip {
-  width: 100%;
-  display: inline-block;
-  position: relative;
-}
-
-.tooltip .tooltiptext {
-  bottom: 100%;
-  left: 0;
-  font-size: 14px;
-  line-height: 1.4;
-  width: 213px;
-  margin-bottom: 10px;
-  visibility: hidden;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 4px 10px;
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip .tooltiptext:before {
-  content: "";
-  position: absolute;
-  left: 1rem;
-  top: 100%;
-  transform: rotate(45deg);
-  width: 12px;
-  height: 12px;
-  margin-top: -6px;
-  background: black;
-}
-
-.tooltip:has(.overflowing):hover .tooltiptext {
-  visibility: visible;
-}
-
 .flatpickr-calendar.rangeMode {
   width: 574px;
 }
@@ -1750,16 +1708,6 @@ sup {
   max-width: 100%;
 }
 
-input[type=password]::-moz-placeholder {
-  font-style: italic;
-  font-weight: 400;
-}
-
-input[type=password]::placeholder {
-  font-style: italic;
-  font-weight: 400;
-}
-
 .editor {
   width: 100%;
   height: 148px;
@@ -1952,6 +1900,11 @@ input[type=password]::placeholder {
 .sidebar-link.active .sidebar-link__counter {
   color: #8950FC;
   background-color: #fff;
+}
+
+.sidebar-link .no-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .sidebar-link__title {
@@ -2196,6 +2149,57 @@ input[type=password]::placeholder {
 
 .settings .form__input {
   height: 50px;
+}
+
+.settings .form__label {
+  width: 289px;
+}
+
+.settings .form__label:has(.status) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings .status {
+  position: relative;
+  margin-right: 7px;
+  padding: 3px 8px 2px 19px;
+  font-size: 11.54px;
+  line-height: 17.31px;
+  color: #238823;
+  background: rgba(35, 136, 35, 0.1);
+  border-radius: 15.39px;
+}
+
+.settings .status:before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #238823;
+}
+
+.settings .form__icon-input .form__input::-moz-placeholder {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.settings .form__icon-input .form__input::placeholder {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.settings .form__icon-input .form__input:not(.placeholder-grey)::-moz-placeholder {
+  color: #011729;
+}
+
+.settings .form__icon-input .form__input:not(.placeholder-grey)::placeholder {
+  color: #011729;
 }
 
 .tracked-initiatives {
@@ -3751,6 +3755,153 @@ input[type=password]::placeholder {
   padding: 0;
 }
 
+.content:has(.computation) {
+  display: flex;
+  flex-direction: column;
+}
+
+.computation {
+  flex-grow: 1;
+  margin-top: 1rem;
+  padding: 22px 35px;
+}
+
+.computation:has(.computation__tab-advance.active) .advance-content {
+  display: block;
+}
+
+.computation:has(.computation__tab-advance.active) .basic-content {
+  display: none;
+}
+
+.computation .advance-content {
+  display: none;
+}
+
+.computation .form__group:not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+
+.computation .form__group:first-child .form__input {
+  height: 50px;
+}
+
+.computation .form__label {
+  width: 246px;
+}
+
+.computation .form__input {
+  width: 632px;
+}
+
+.computation .tooltip {
+  position: relative;
+  margin-left: 21px;
+}
+
+.computation .tooltip:hover .tooltip__content {
+  display: block;
+}
+
+.computation .tooltip__btn {
+  cursor: pointer;
+}
+
+.computation .tooltip__btn:hover svg {
+  color: #8950FC;
+}
+
+.computation .tooltip__content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  right: -1rem;
+  width: 240px;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  box-shadow: 0 0 3px #ccc;
+  border-radius: 4px;
+}
+
+.computation .tooltip__content:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  right: 22.5px;
+  transform: rotate(45deg);
+  width: 10px;
+  height: 10px;
+  margin-bottom: -5px;
+  background-color: #fff;
+  box-shadow: 0 0 3px #ccc;
+}
+
+.computation .tooltip__content-inner {
+  position: relative;
+  padding: 8px 16px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.computation__tabs {
+  display: inline-flex;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.computation__tabs-wrap {
+  max-width: calc(100% - 246px);
+}
+
+.computation__tab {
+  width: 159px;
+  padding: 7.5px 0;
+  font-size: 12px;
+  line-height: 15px;
+  color: #fff;
+  background-color: rgba(114, 118, 147, 0.6);
+}
+
+.computation__tab:hover:not(.active) {
+  background-color: rgba(114, 118, 147, 0.8);
+}
+
+.computation__tab.active {
+  font-weight: bold;
+  background-color: #727693;
+}
+
+.computation .form__group-tabs {
+  align-items: flex-start;
+}
+
+.computation .form__group-tabs .editor__wrap {
+  max-width: 100%;
+  width: 629px;
+  margin-top: 41px;
+}
+
+.computation .form__group-base-value .form__label {
+  display: flex;
+  align-items: center;
+  width: 400px;
+}
+
+.computation .form__group-base-value .form__label .text-small {
+  margin-left: 26px;
+}
+
+.computation .form__group-base-value .form__label b {
+  margin-left: 56px;
+  font-weight: 500;
+}
+
+.computation .form__group-base-value .form__input {
+  width: 478px;
+}
+
 @media (min-width: 640px) {
   .choices__list--dropdown .choices__item--selectable::after,
   .choices__list[aria-expanded] .choices__item--selectable::after {
@@ -3796,6 +3947,10 @@ input[type=password]::placeholder {
 
   .quarter .table__inner {
     min-width: auto;
+  }
+
+  .computation:has(.tooltip) .form__group:not(:has(.tooltip)) {
+    padding-right: 46px;
   }
 }
 
@@ -4149,6 +4304,26 @@ input[type=password]::placeholder {
     justify-content: space-between;
     margin-top: 2rem;
   }
+
+  .computation .form__label {
+    width: 200px;
+  }
+
+  .computation .form__group-base-value .form__label {
+    width: 325px;
+  }
+
+  .computation .form__group-base-value .form__label .text-small {
+    margin-left: 0;
+  }
+
+  .computation .form__group-base-value .form__label b {
+    margin-left: 40px;
+  }
+
+  .computation__tabs-wrap {
+    max-width: calc(100% - 200px);
+  }
 }
 
 @media (max-width: 991px) {
@@ -4189,6 +4364,14 @@ input[type=password]::placeholder {
     margin-top: 0;
   }
 
+  .settings .form__label:has(.status) {
+    width: 220px;
+  }
+
+  .settings .status {
+    margin-right: 0;
+  }
+
   .user-greeting,
   .breadcrumbs {
     font-size: 20px;
@@ -4223,6 +4406,55 @@ input[type=password]::placeholder {
 
   .roi-graph {
     padding: 40px 16px 0 24px;
+  }
+
+  .computation {
+    padding: 24px 16px;
+  }
+
+  .computation .tooltip {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .computation .tooltip svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .computation .tooltip__content {
+    width: 200px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .computation .form__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  .computation .form__input {
+    width: 100%;
+  }
+
+  .computation .form__group-base-value .form__label b {
+    order: -1;
+    margin-left: 0;
+    margin-right: 40px;
+  }
+
+  .computation .form__group-base-value .form__input {
+    width: 100%;
+  }
+
+  .computation__tabs-wrap {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  .computation .form__group-tabs .editor__wrap {
+    margin-top: 24px;
   }
 }
 
@@ -4445,6 +4677,10 @@ input[type=password]::placeholder {
     width: 100%;
   }
 
+  .settings .form__label:has(.status) {
+    width: 240px;
+  }
+
   .goals {
     padding: 1rem;
   }
@@ -4523,6 +4759,16 @@ input[type=password]::placeholder {
     top: 7px;
     width: 6px;
     height: 6px;
+  }
+}
+
+@media (max-width: 390px) {
+  .computation__tabs {
+    display: flex;
+  }
+
+  .computation__tab {
+    width: 50%;
   }
 }
 
@@ -4637,6 +4883,12 @@ input[type=password]::placeholder {
 
   .content {
     padding: 23px 16px 45px 258px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .settings .form__label {
+    width: 220px;
   }
 }
 

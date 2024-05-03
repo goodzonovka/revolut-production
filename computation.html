@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240503030138"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?_v=20240503030138"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js?_v=20240503030138"></script>
-    <title>Dashboard</title>
+    <title>Computation</title>
 </head>
 <body>
 
@@ -35,11 +35,11 @@
         <span>Revolut</span>
     </a>
 
-    <div class="sidebar-list__title text-small">Main Menu</div>
+    <div class="text-small sidebar-list__title">Main Menu</div>
 
     <ul class="sidebar-list">
         <li>
-            <a href="/" class="sidebar-link active">
+            <a href="/" class="sidebar-link">
                 <svg width="24" height="24">
                     <use href="/images/icons/icons.svg#home"></use>
                 </svg>
@@ -82,7 +82,7 @@
     </ul>
 
 
-    <div class="sidebar-list__title text-small">Others</div>
+    <div class="text-small sidebar-list__title">Others</div>
 
     <ul class="sidebar-list">
         <li>
@@ -96,7 +96,7 @@
         </li>
 
         <li>
-            <a href="computation.html" class="sidebar-link">
+            <a href="computation.html" class="sidebar-link active">
                 <span class="no-icon"></span>
                 <span class="sidebar-link__title">Computation</span>
             </a>
@@ -142,59 +142,106 @@
 
         <ul class="breadcrumbs">
             <li>
-                Dashboard
+                <a href="#">
+                    Settings
+                    <svg width="24" height="24">
+                        <use href="/images/icons/icons.svg#chevron-right"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                Computation
             </li>
         </ul>
 
-        <div class="content-list-blocks">
+        <div class="block computation">
+    <div class="form__group">
+        <label class="form__label basic-content">
+            Development cost
+            <div class="text-small">Cost per effort worked</div>
+        </label>
 
-    <div class="block block-goals">
-        <div class="block-goals__header">
+        <label class="form__label advance-content">
+            Cost
+        </label>
 
-            <div>
-                <div class="block-goals__value">
-                    <svg width="24" height="24">
-                        <use href="/images/icons/icons.svg#flag"></use>
-                    </svg>
-                    No Goals
-                </div>
-                <div class="block-goals__percent">-</div>
-            </div>
+        <input type="text" class="form__input" placeholder="$ 10,000">
 
-            <div class="block-goals__circle">
-                <svg class="circle-percent-js no-goals" width="68" height="68" viewBox="0 0 68 68" data-percent="75" style="display: none">
-                    <circle cx="34" cy="34" r="32" stroke="#EFF2F8" stroke-width="4" fill="none"/>
-                    <circle class="active-path" cx="34" cy="34" r="32" stroke="black" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="150.8 201.1" stroke-dashoffset="0" transform="rotate(-90 34 34)">
-                    </circle>
-                    <text class="percent-text" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="16" font-weight="bold" fill="black"></text>
-                </svg>
-            </div>
-        </div>
-    </div>
-
-    <div class="block next-release">
-        <div class="icon-text">
-            <div class="active icon-block">
+        <div class="tooltip">
+            <div class="tooltip__btn">
                 <svg width="24" height="24">
-                    <use href="/images/icons/icons.svg#fire"></use>
+                    <use href="/images/icons/icons.svg#question"></use>
                 </svg>
             </div>
-            Next release
+            <div class="tooltip__content">
+                <div class="tooltip__content-inner">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
+                    commodi esse officia!
+                </div>
+            </div>
         </div>
-
-        <div class="next-release__data">No data</div>
-
-        <div class="next-release__days">
-            <svg width="24" height="24">
-                <use href="/images/icons/icons.svg#fire"></use>
-            </svg>
-            -
-        </div>
-
-        <button class="btn">See Initiatives</button>
     </div>
 
-    <div class="block calendar">Calendar</div>
+    <div class="form__group form__group-tabs">
+        <label class="form__label basic-content">
+            Churn
+            <div class="text-small">Value of % change in churn</div>
+        </label>
+
+        <label class="form__label advance-content">
+            Churn
+            <div class="text-small">Select level of issues you<br> want to sync from Jira</div>
+        </label>
+
+        <div class="computation__tabs-wrap">
+            <div class="computation__tabs">
+                <button class="active computation__tab">Basic</button>
+                <button class="computation__tab computation__tab-advance">Advance (query based)</button>
+            </div>
+
+            <div class="advance-content editor__wrap">
+                <div class="editor__bg">
+                    <div class="editor editor-js">SELECT
+    DATE(ticket_created) AS ticket_date,
+    COUNT(ticket_id) AS support_tickets_count
+FROM Zendesk.support_tickets
+WHERE product_name = 'FAQ Rewards'
+GROUP BY DATE(ticket_created);</div>
+                </div>
+                <div class="editor__footer">
+                    <div class="editor__error">
+                        Syntax error: syntax error at or near "year".
+                    </div>
+                    <button class="btn">
+                        <svg width="24" height="24">
+                            <use href="/images/icons/icons.svg#play"></use>
+                        </svg>
+                        Run Query
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form__group form__group-base-value">
+        <label class="form__label">
+            <div class="text-small">
+                Base Value: The value<br>
+                each 1% change in churn<br>
+                will be calculated from.
+            </div>
+            <b>Base Value</b>
+        </label>
+        <input type="text" class="form__input" placeholder="$100.000">
+    </div>
+
+    <div class="form__group">
+        <label class="form__label">
+            User
+            <div class="text-small">Average value per user (ARPU)</div>
+        </label>
+        <input type="text" class="form__input" placeholder="$ 10,000">
+    </div>
 </div>
     </div>
 </div>

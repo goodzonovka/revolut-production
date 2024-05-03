@@ -7,16 +7,16 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&display=swap&_v=20240502131354" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20240502131354">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css?_v=20240502131354" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.min.css?_v=20240502131354">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&display=swap&_v=20240503030138" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css?_v=20240503030138">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css?_v=20240503030138" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css?_v=20240503030138">
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20240502131354"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240502131354"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240502131354"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?_v=20240502131354"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js?_v=20240502131354"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20240503030138"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr?_v=20240503030138"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js?_v=20240503030138"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?_v=20240503030138"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js?_v=20240503030138"></script>
     <title>Settings</title>
 </head>
 <body>
@@ -92,6 +92,13 @@
                 </svg>
 
                 <span class="sidebar-link__title">Settings</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="computation.html" class="sidebar-link">
+                <span class="no-icon"></span>
+                <span class="sidebar-link__title">Computation</span>
             </a>
         </li>
 
@@ -228,14 +235,19 @@
         </select>
     </div>
 
+
+
     <div class="form__group form__group-integrations">
-        <div class="form__label">Integrations</div>
+        <div class="form__label">
+            Integrations
+            <div class="status">Active</div>
+        </div>
 
         <div class="form__icon-input">
             <div class="icon">
                 <picture><source srcset="images/integrations/postgre.webp" type="image/webp"><img src="images/integrations/postgre.png" width="30" height="30" alt=""></picture>
             </div>
-            <input type="password" class="form__input" placeholder="api key">
+            <input type="password" class="form__input" placeholder="host name">
             <button class="show-pass" aria-label="Show signing">
                 <svg width="24" height="24">
                     <use href="/images/icons/icons.svg#view"></use>
@@ -245,13 +257,71 @@
     </div>
 
     <div class="form__group form__group-integrations">
+        <div class="form__label"></div>
+
+        <div class="form__icon-input">
+            <div class="icon"></div>
+            <input type="password" class="form__input" placeholder="username">
+            <button class="show-pass" aria-label="Show signing">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#view"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="form__group form__group-integrations">
+        <div class="form__label"></div>
+
+        <div class="form__icon-input">
+            <div class="icon"></div>
+            <input type="password" class="form__input" placeholder="password">
+            <button class="show-pass" aria-label="Show signing">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#view"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="form__group form__group-integrations">
+        <div class="form__label"></div>
+
+        <div class="form__icon-input">
+            <div class="icon"></div>
+            <input type="password" class="form__input" placeholder="port">
+            <button class="show-pass" aria-label="Show signing">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#view"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="form__group form__group-integrations">
+        <div class="form__label"></div>
+
+        <div class="form__icon-input">
+            <div class="icon"></div>
+            <input type="password" class="form__input" placeholder="database name">
+            <button class="show-pass" aria-label="Show signing">
+                <svg width="24" height="24">
+                    <use href="/images/icons/icons.svg#view"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="form__group form__group-integrations">
         <div class="form__label">Integrations</div>
 
         <div class="form__icon-input">
             <div class="icon">
                 <picture><source srcset="images/integrations/mixpanel.webp" type="image/webp"><img src="images/integrations/mixpanel.png" width="30" height="7" alt=""></picture>
             </div>
-            <input type="password" class="form__input" placeholder="api key">
+            <input type="password" class="form__input placeholder-grey" placeholder="api key">
             <button class="show-pass" aria-label="Show signing">
                 <svg width="24" height="24">
                     <use href="/images/icons/icons.svg#view"></use>
@@ -285,6 +355,6 @@
     </div>
 </div>
 
-<script src="js/app.min.js?_v=20240502131354"></script>
+<script src="js/app.min.js?_v=20240503030138"></script>
 </body>
 </html>
