@@ -1353,6 +1353,48 @@ sup {
   border-color: #0070FF;
 }
 
+/* Стиль тултипа */
+
+.tooltip {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  bottom: 100%;
+  left: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  width: 213px;
+  margin-bottom: 10px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 4px 10px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip .tooltiptext:before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 100%;
+  transform: rotate(45deg);
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  background: black;
+}
+
+.tooltip:has(.overflowing):hover .tooltiptext {
+  visibility: visible;
+}
+
 .flatpickr-calendar.rangeMode {
   width: 574px;
 }
@@ -2523,10 +2565,6 @@ sup {
   width: 25%;
 }
 
-.table.table-view-2 .table__th {
-  padding: 16px 0 16px 12px;
-}
-
 .table.table-view-2 .table__th:first-child {
   padding-left: 16px;
 }
@@ -2549,7 +2587,7 @@ sup {
 }
 
 .table.table-view-3:has(.table__checkbox:checked) .table__bottom {
-  display: flex;
+  display: inline-flex;
 }
 
 .table.table-view-3 .table__row-header {
@@ -2580,8 +2618,6 @@ sup {
 
 .table.table-view-3 .table__row-group-parent .table__td:nth-child(2) {
   padding-right: 3px;
-  font-size: 12px;
-  line-height: 18px;
 }
 
 .table.table-view-3 .table__row-group-parent .progress {
@@ -2661,30 +2697,16 @@ sup {
 }
 
 .table.table-view-3 .table__th {
-  padding: 11px 24px 12px;
-}
-
-.table.table-view-3 .table__th:nth-child(3) svg,
-.table.table-view-3 .table__th:nth-child(8) svg {
-  margin-left: 0.75rem;
+  padding: 13.5px 24px 13.5px;
 }
 
 .table.table-view-3 .table__th:nth-child(6) {
   padding-left: 10px;
 }
 
-.table.table-view-3 .table__th svg {
-  margin-left: 0.25rem;
-}
-
 .table.table-view-3 .table__td {
-  padding: 10px 14px 11px 24px;
-}
-
-.table.table-view-3 .table__td:nth-child(2),
-.table.table-view-3 .table__td:nth-child(3) {
-  font-size: 14px;
-  line-height: 20px;
+  padding-left: 24px;
+  padding-right: 14px;
 }
 
 .table.table-view-3 .table__td:nth-child(3),
@@ -2798,11 +2820,12 @@ sup {
 }
 
 .table__top:has(.table-filter__btn) {
-  padding: 7.5px 3rem;
+  padding: 5px 3rem;
 }
 
 .table__scroll {
   overflow: auto;
+  position: relative;
 }
 
 .table__inner {
@@ -2836,9 +2859,11 @@ sup {
 .table__th,
 .table__td {
   flex: 1;
-  padding: 16px 17px 15px;
+  height: 45px;
+  padding: 6px 17px;
   font-weight: 400;
-  line-height: 26px;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .table__th {
@@ -2848,7 +2873,9 @@ sup {
 }
 
 .table__th svg {
-  margin-left: 1rem;
+  margin-left: 4px;
+  width: 16px;
+  height: 16px;
   color: #727693;
 }
 
@@ -2856,11 +2883,6 @@ sup {
   display: flex;
   align-items: center;
   color: #727693;
-}
-
-.table__td:has(.status) {
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .table__td:has(.table__td-name) {
@@ -3010,8 +3032,8 @@ sup {
 .table-filter__wrap:has(.table-filter-selected.active) .table-filter__btn:not(.table-filter__btn-2) {
   padding: 0;
   font-size: 0;
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
 }
 
 .no-webp .table-filter__btn{
@@ -3023,7 +3045,8 @@ sup {
 
 .table-filter__btn {
   padding: 0 17px 0 41px;
-  line-height: 45px;
+  font-size: 14px;
+  line-height: 35px;
   font-weight: 500;
   color: #fff;
   border-radius: 10px;
@@ -3112,7 +3135,7 @@ sup {
   justify-content: center;
   align-items: center;
   min-width: 329px;
-  height: 45px;
+  height: 35px;
   padding: 0 35px;
   line-height: 18px;
   font-weight: 500;
@@ -3126,7 +3149,7 @@ sup {
   background: url("../images/all-initiatives/filter/close.png") no-repeat right 12px center; }
 
 .table-filter-selected__remove {
-  background-size: 18px !important;
+  background-size: 15px !important;
 }
 
 .table-filter-selected__remove {
@@ -3134,47 +3157,51 @@ sup {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   transition: none;
 }
 
 .table__bottom {
   display: none;
-  padding: 7.5px 3rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 3rem;
   font-size: 0.75rem;
   line-height: 18px;
   font-weight: 500;
-  border-top: 1px solid #EAECF0;
+  background-color: #EFF2F8;
+  border-radius: 10px;
 }
 
 .table__bottom.active {
   display: flex;
 }
 
+.table__bottom .table__selected {
+  margin-right: 4px;
+}
+
 .table__bottom .table__selected,
 .table__bottom .table__group {
-  padding-top: 13.5px;
-  padding-bottom: 13.5px;
+  padding-top: 8.5px;
+  padding-bottom: 8.5px;
+  white-space: nowrap;
   color: #fff;
   background-color: #727693;
   border-radius: 10px;
 }
 
-.table__bottom .table__selected:not(:last-child),
-.table__bottom .table__group:not(:last-child) {
-  margin-right: 11px;
-}
-
 .table__bottom .table__input-group-name {
-  display: none;
   width: 304px;
-  margin-left: 10px;
+  height: 35px;
+  margin-left: 4px;
   padding: 0 1rem;
-  font-size: 1rem;
+  font-size: 12px;
   font-weight: 500;
   color: #727693;
-  background-color: #EFF2F8;
+  background-color: #fff;
   border-radius: 10px;
 }
 
@@ -3254,8 +3281,6 @@ sup {
 .table.table-view-4 .table__td {
   flex: initial;
   flex-shrink: 0;
-  font-size: 12px;
-  line-height: 18px;
   color: #727693;
 }
 
@@ -3286,7 +3311,8 @@ sup {
 }
 
 .table.table-view-4 .table__th {
-  padding: 13px 12px 13px 24px;
+  padding-left: 24px;
+  padding-right: 12px;
   font-weight: 500;
 }
 
@@ -3294,27 +3320,15 @@ sup {
   padding-left: 10px;
 }
 
-.table.table-view-4 .table__th svg {
-  margin-left: 0.25rem;
-}
-
 .table.table-view-4 .table__td {
-  padding: 11px 12px 11px 24px;
+  padding-left: 24px;
+  padding-right: 12px;
   background: #EFF2F8;
 }
 
 .table.table-view-4 .table__td:nth-child(1),
 .table.table-view-4 .table__td:nth-child(2) {
   font-weight: 500;
-}
-
-.table.table-view-4 .table__td:nth-child(1),
-.table.table-view-4 .table__td:nth-child(3) {
-  line-height: 20px;
-}
-
-.table.table-view-4 .table__td:nth-child(1) {
-  font-size: 14px;
 }
 
 .table.table-view-4 .table__td:nth-child(4) {
@@ -3325,7 +3339,6 @@ sup {
   width: auto;
   min-width: 60px;
   padding: 2px;
-  line-height: 18px;
 }
 
 /**
@@ -3709,7 +3722,8 @@ sup {
 
 .roi__table .table__td {
   flex: initial;
-  padding: 16px 14px;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 .roi__table .table__td:nth-child(1) {
@@ -3794,24 +3808,24 @@ sup {
   width: 632px;
 }
 
-.computation .tooltip {
+.computation .tooltip-icon {
   position: relative;
   margin-left: 21px;
 }
 
-.computation .tooltip:hover .tooltip__content {
+.computation .tooltip-icon:hover .tooltip-icon__content {
   display: block;
 }
 
-.computation .tooltip__btn {
+.computation .tooltip-icon__btn {
   cursor: pointer;
 }
 
-.computation .tooltip__btn:hover svg {
+.computation .tooltip-icon__btn:hover svg {
   color: #8950FC;
 }
 
-.computation .tooltip__content {
+.computation .tooltip-icon__content {
   display: none;
   position: absolute;
   z-index: 1;
@@ -3825,7 +3839,7 @@ sup {
   border-radius: 4px;
 }
 
-.computation .tooltip__content:before {
+.computation .tooltip-icon__content:before {
   content: "";
   position: absolute;
   bottom: 100%;
@@ -3838,7 +3852,7 @@ sup {
   box-shadow: 0 0 3px #ccc;
 }
 
-.computation .tooltip__content-inner {
+.computation .tooltip-icon__content-inner {
   position: relative;
   padding: 8px 16px;
   background-color: #fff;
@@ -3949,7 +3963,7 @@ sup {
     min-width: auto;
   }
 
-  .computation:has(.tooltip) .form__group:not(:has(.tooltip)) {
+  .computation:has(.tooltip-icon) .form__group:not(:has(.tooltip-icon) -icon) {
     padding-right: 46px;
   }
 }
@@ -4285,6 +4299,18 @@ sup {
     min-width: 540px;
   }
 
+  .table__bottom {
+    min-width: 271px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .table__bottom .table__input-group-name {
+    width: 100%;
+    margin-top: 4px;
+    margin-left: 0;
+  }
+
   .roi-item {
     width: calc(100% - 14px);
   }
@@ -4412,18 +4438,18 @@ sup {
     padding: 24px 16px;
   }
 
-  .computation .tooltip {
+  .computation .tooltip-icon {
     position: absolute;
     right: 0;
     top: 0;
   }
 
-  .computation .tooltip svg {
+  .computation .tooltip-icon svg {
     width: 20px;
     height: 20px;
   }
 
-  .computation .tooltip__content {
+  .computation .tooltip-icon__content {
     width: 200px;
     font-size: 12px;
     line-height: 18px;
@@ -4763,6 +4789,16 @@ sup {
 }
 
 @media (max-width: 390px) {
+  .table__bottom {
+    min-width: auto;
+    width: 240px;
+    left: auto;
+    transform: none;
+    right: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
   .computation__tabs {
     display: flex;
   }

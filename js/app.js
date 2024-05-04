@@ -4454,18 +4454,6 @@ document.addEventListener('DOMContentLoaded', function () {
     checkbox.addEventListener('change', updateSelectedCount);
   });
   updateSelectedCount();
-  var showInputGroupName = document.getElementById('show-input-group-name');
-  var inputGroupName = document.getElementById('input-group-name');
-  if (inputGroupName) {
-    inputGroupName.style.display = 'none';
-    showInputGroupName.addEventListener('click', function () {
-      if (inputGroupName.style.display === 'none') {
-        inputGroupName.style.display = 'block';
-      } else {
-        inputGroupName.style.display = 'none';
-      }
-    });
-  }
   var toggleButtons = document.querySelectorAll('.toggle-button-js');
 
   // Добавляем обработчик события клика каждой кнопке
@@ -4494,6 +4482,27 @@ document.addEventListener('DOMContentLoaded', function () {
         tab.classList.remove("active");
       });
       this.classList.add("active");
+    });
+  });
+  var tableCheckboxes = document.querySelectorAll('.table__checkbox');
+  var tableBottom = document.querySelector('.table__bottom');
+  var tableScroll = document.querySelector('.table__scroll');
+
+  // Функция для изменения позиции .table__bottom
+  function updatePosition(checkbox) {
+    var checkboxParent = checkbox.closest('.table__td');
+    var checkboxRect = checkboxParent.getBoundingClientRect();
+    var scrollRect = tableScroll.getBoundingClientRect();
+    var relativeTop = checkboxRect.top - scrollRect.top;
+
+    // Обновляем стиль для .table__bottom
+    tableBottom.style.top = "".concat(relativeTop, "px");
+  }
+
+  // Добавляем обработчик события клика для каждого чекбокса
+  tableCheckboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('click', function () {
+      updatePosition(this);
     });
   });
 });
