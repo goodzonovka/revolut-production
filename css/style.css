@@ -3461,9 +3461,14 @@ sup {
   overflow: hidden;
 }
 
-.roi-item:not(:has(.roi-item__graph)) .roi-item__bottom {
-  padding-top: 1rem;
-  border-top: none;
+.roi-item:has(.roi-item__graph.active) .roi-item__bottom {
+  padding-top: 0;
+  border-top: 1px solid #E1D3FE;
+  pointer-events: initial;
+}
+
+.roi-item:has(.roi-item__graph.active) .roi-item__button:after {
+  visibility: visible;
 }
 
 .roi-item__header {
@@ -3474,11 +3479,11 @@ sup {
   line-height: 20px;
   letter-spacing: 0.5px;
   background-color: rgba(35, 136, 35, 0.15);
-  border-radius: 10px;
-}
-
-.roi-item__header.active {
   border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .roi-item__header.active svg {
@@ -3525,8 +3530,12 @@ sup {
 .roi-item__bottom {
   display: flex;
   text-align: center;
+  padding-top: 1rem;
   font-weight: 400;
-  border-top: 1px solid #E1D3FE;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .roi-item__bottom li {
@@ -3543,16 +3552,6 @@ sup {
   height: calc(100% - 26px);
   transform: translateY(-50%);
   border-right: 1px solid #E1D3FE;
-}
-
-.roi-item__bottom li.border-top:after {
-  content: "";
-  position: absolute;
-  top: 4px;
-  left: 8px;
-  width: calc(100% - 16px);
-  border-bottom: 3px solid #E1D3FE;
-  border-radius: 8px;
 }
 
 .roi-item__bottom .title {
@@ -3579,6 +3578,26 @@ sup {
 
 .roi-item__bottom svg.green {
   color: #238823;
+}
+
+.roi-item__button {
+  cursor: pointer;
+  outline: none;
+}
+
+.roi-item__button.active {
+  cursor: default;
+}
+
+.roi-item__button.active:after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: calc(100% - 16px);
+  border-bottom: 3px solid #E1D3FE;
+  border-radius: 8px;
+  visibility: hidden;
 }
 
 .roi-graph {

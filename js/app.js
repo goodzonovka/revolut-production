@@ -4505,6 +4505,37 @@ document.addEventListener('DOMContentLoaded', function () {
       updatePosition(this);
     });
   });
+  var roiItemButtons = document.querySelectorAll('.roi-item__button');
+
+  // Добавляем обработчик события клика на каждую кнопку
+  roiItemButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      // Получаем всех соседей (другие кнопки в том же roi-item__bottom)
+      var siblings = Array.from(this.parentNode.children);
+
+      // Удаляем класс active у всех соседних кнопок и скрываем соответствующие графики
+      siblings.forEach(function (sibling) {
+        sibling.classList.remove('active');
+        var graphId = sibling.dataset.trigger;
+        if (graphId) {
+          var graph = document.querySelector(graphId);
+          if (graph) {
+            graph.style.display = 'none';
+          }
+        }
+      });
+
+      // Добавляем класс active к кликнутой кнопке и показываем соответствующий график
+      this.classList.add('active');
+      var activeGraphId = this.dataset.trigger;
+      if (activeGraphId) {
+        var activeGraph = document.querySelector(activeGraphId);
+        if (activeGraph) {
+          activeGraph.style.display = '';
+        }
+      }
+    });
+  });
 });
 window.onload = function () {
   // Добавление тултипа ко всем ячейкам первого столбца
